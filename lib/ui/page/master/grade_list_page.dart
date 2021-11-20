@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
-import 'package:trishul_erp/constants/app_fonts.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
-import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
+
+import 'grade_list_tile.dart';
 
 class GradeListPage extends StatelessWidget {
   static const String routeName = '/grade_list';
@@ -56,60 +56,7 @@ class GradeListPage extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (ctx, index) {
-                      return Container(
-                        padding: const EdgeInsets.only(
-                            left: 25, right: 25, top: 12, bottom: 12),
-                        margin: const EdgeInsets.only(
-                            top: 5, bottom: 5, left: 15, right: 15),
-                        decoration: BoxDecoration(
-                            color: AppColors.chipColor,
-                            borderRadius: BorderRadius.circular(25)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Indward Hot Box Sand',
-                                style: AppStyles.txtListLblTextStyle),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                //Edit Button
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      left: 20, right: 20, top: 10, bottom: 10),
-                                  decoration: AppStyles
-                                      .roundButtonDecorationStyle
-                                      .copyWith(color: AppColors.greenColor),
-                                  child: Text(
-                                    AppStrings.strEdit,
-                                    style: AppStyles.txtEditDltTextStyle,
-                                  ),
-                                ),
-
-                                const SizedBox(
-                                  width: 15,
-                                ),
-
-                                //Delete Button
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      left: 20, right: 20, top: 10, bottom: 10),
-                                  decoration:
-                                      AppStyles.roundButtonDecorationStyle,
-                                  child: Text(
-                                    AppStrings.strDelete,
-                                    style: AppStyles.txtEditDltTextStyle,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      );
+                      return const GradeListTile();
                     }),
               ),
             )

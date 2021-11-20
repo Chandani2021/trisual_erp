@@ -1,4 +1,4 @@
-#Fri Nov 19 22:49:04 IST 2021
+#Fri Nov 19 23:24:48 IST 2021
 base.0=E\:\\Raiyani Work\\Trishul Erp\\Code\\trishul_erp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
