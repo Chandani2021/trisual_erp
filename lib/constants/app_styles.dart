@@ -85,4 +85,16 @@ class AppStyles {
 
   static BoxDecoration roundButtonDecorationStyle = BoxDecoration(
       borderRadius: BorderRadius.circular(20), color: AppColors.toolbarColor);
+
+  static InputDecoration searchTextFieldInputDecoration = const InputDecoration(
+    contentPadding: EdgeInsets.zero,
+    border: InputBorder.none,
+    hintText: 'Search Here',
+    hintStyle: const TextStyle(
+      color: AppColors.secondaryTextColor,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
+      fontFamily: appFontFamily,
+    ),
+  );
 }

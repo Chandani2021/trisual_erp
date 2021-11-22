@@ -25,4 +25,9 @@ class AppErrorMessage {
 
   static String strErrEnterConfirmPwdMissMatch =
       "Both Password are not matched";
+
+  static String strDlt = "Delete";
+  static String strDltItemMsg = "Do you really want to delete this item ?";
+  static String strYes = "Yes";
+  static String strNo = "No";
 }

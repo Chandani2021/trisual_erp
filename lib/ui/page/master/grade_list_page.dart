@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
-import 'package:trishul_erp/constants/app_padding.dart';
+import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
@@ -18,30 +18,44 @@ class GradeListPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: AppPaddings.appScrrenContentPadding
-                  .copyWith(top: 20, bottom: 20),
-              child: TextFormField(
-                autofocus: false,
-                keyboardType: TextInputType.text,
-                style: AppStyles.roundTextInputTextStyle,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: AppColors.toolbarColor,
-                  hintText: 'Search Here',
-                  hintStyle: AppStyles.roundTextInputTextStyle,
-                  contentPadding: const EdgeInsets.only(
-                    left: 20.0,
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 10,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border:
+                            Border.all(color: AppColors.greyColor, width: 1),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            AppIcons.icSeachWhite,
+                            width: 20,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: TextFormField(
+                                textInputAction: TextInputAction.search,
+                                decoration:
+                                    AppStyles.searchTextFieldInputDecoration),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(25.7),
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(25.7),
-                  ),
-                ),
+                ],
               ),
             ),
             const SizedBox(
