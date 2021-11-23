@@ -97,4 +97,11 @@ class AppStyles {
       fontFamily: appFontFamily,
     ),
   );
+
+  static const TextStyle dialogHeadingTextStyle = TextStyle(
+    color: AppColors.blackColor,
+    fontSize: 20,
+    fontFamily: appFontFamily,
+    fontWeight: FontWeight.w500,
+  );
 }

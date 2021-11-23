@@ -3,8 +3,8 @@ import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_helper.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
-import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/dialog/master/dialog_edit_grade.dart';
 
 class GradeListTile extends StatelessWidget {
   const GradeListTile({
@@ -36,13 +36,25 @@ class GradeListTile extends StatelessWidget {
                       style: AppStyles.txtListLblTextStyle),
                 ),
                 //Edit Button
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Image.asset(
-                    AppIcons.icEdit,
-                    color: AppColors.greenColor,
-                    height: 30,
-                    width: 30,
+                InkWell(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const DialogEditGrade(
+                          title: '+91',
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Image.asset(
+                      AppIcons.icEdit,
+                      color: AppColors.greenColor,
+                      height: 30,
+                      width: 30,
+                    ),
                   ),
                 ),
 

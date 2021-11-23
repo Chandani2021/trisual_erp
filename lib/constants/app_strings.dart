@@ -25,4 +25,8 @@ class AppStrings {
   //Lisitng
   static String strEdit = 'Edit';
   static String strDelete = 'Delete';
+  static String strUpdate = 'Update';
+  static String strCancle = 'Cancle';
+  
+  
 }
