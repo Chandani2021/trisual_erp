@@ -8,8 +8,6 @@ import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/utils/device_utils.dart';
 
-/* @Auther: Hardik Kotadiya
-   Use : Account Setting - > Edit Mobile Number */
 class DialogEditGrade extends StatefulWidget {
   final String? title;
   const DialogEditGrade({Key? key, @required this.title}) : super(key: key);

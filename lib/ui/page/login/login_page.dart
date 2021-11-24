@@ -30,146 +30,130 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         backgroundColor: AppColors.grey8Color,
         body: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(
-                    left: 25,
-                    right: 25,
+          child: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.only(
+              left: 25,
+              right: 25,
+            ),
+            decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
+                )),
+            child: Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 25,
                   ),
-                  margin: EdgeInsets.only(top: 300),
-                  decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50),
-                        topRight: Radius.circular(50),
-                      )),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: 25,
-                              ),
-                              Center(
-                                child: Image.asset(
-                                  AppIcons.icAppLogo,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 25,
-                              ),
-                              Center(
-                                  child: Container(
-                                width: 100,
-                                height: 5,
-                                color: AppColors.redColor,
-                              )),
-
-                              Text(
-                                AppStrings.strLogin,
-                                style: TextStyle(
-                                    color: AppColors.blackColor,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 20,
-                                    fontFamily: appFontFamily),
-                              ),
-
-                              const SizedBox(
-                                height: 15,
-                              ),
-
-                              //Email
-                              Container(
-                                height: 45,
-                                child: TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  decoration: AppStyles.textFieldInputDecoration
-                                      .copyWith(
-                                    hintText: AppStrings.strHintUsername,
-                                  ),
-                                  style: AppStyles.textInputTextStyle,
-                                ),
-                              ),
-
-                              const SizedBox(
-                                height: 10,
-                              ),
-
-                              //Password
-
-                              TextFormField(
-                                obscureText: !_passwordVisible,
-                                keyboardType: TextInputType.emailAddress,
-                                decoration:
-                                    AppStyles.textFieldInputDecoration.copyWith(
-                                  hintText: AppStrings.strHintPassword,
-                                  suffix: InkWell(
-                                    onTap: () {
-                                      if (_passwordVisible) {
-                                        setState(() {
-                                          _passwordVisible = false;
-                                        });
-                                      } else {
-                                        setState(() {
-                                          _passwordVisible = true;
-                                        });
-                                      }
-                                    },
-                                    child: Text(
-                                        _passwordVisible
-                                            ? AppStrings.strHide
-                                            : AppStrings.strShow,
-                                        style: AppStyles.hideShowTextStyle),
-                                  ),
-                                ),
-                                style: AppStyles.textInputTextStyle,
-                              ),
-
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-
-                              //Login Button
-                              InkWell(
-                                onTap: () {
-                                  Get.toNamed(MainPage.routeName);
-                                },
-                                child: Container(
-                                  decoration: AppStyles.buttonDecorationStyle,
-                                  width: double.infinity,
-                                  height: 50.0,
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(AppStrings.strLogin,
-                                            textAlign: TextAlign.center,
-                                            style: AppStyles.buttonTextStyle),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                  Center(
+                    child: Image.asset(
+                      AppIcons.icAppLogo,
                     ),
                   ),
-                ),
-              )
-            ],
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                      child: Container(
+                    width: 100,
+                    height: 5,
+                    color: AppColors.redColor,
+                  )),
+
+                  Text(
+                    AppStrings.strLogin,
+                    style: TextStyle(
+                        color: AppColors.blackColor,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 20,
+                        fontFamily: appFontFamily),
+                  ),
+
+                  const SizedBox(
+                    height: 15,
+                  ),
+
+                  //Email
+                  Container(
+                    height: 45,
+                    child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      decoration: AppStyles.textFieldInputDecoration.copyWith(
+                        hintText: AppStrings.strHintUsername,
+                      ),
+                      style: AppStyles.textInputTextStyle,
+                    ),
+                  ),
+
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  //Password
+                  TextFormField(
+                    obscureText: !_passwordVisible,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: AppStyles.textFieldInputDecoration.copyWith(
+                      hintText: AppStrings.strHintPassword,
+                      suffix: InkWell(
+                        onTap: () {
+                          if (_passwordVisible) {
+                            setState(() {
+                              _passwordVisible = false;
+                            });
+                          } else {
+                            setState(() {
+                              _passwordVisible = true;
+                            });
+                          }
+                        },
+                        child: Text(
+                            _passwordVisible
+                                ? AppStrings.strHide
+                                : AppStrings.strShow,
+                            style: AppStyles.hideShowTextStyle),
+                      ),
+                    ),
+                    style: AppStyles.textInputTextStyle,
+                  ),
+
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+
+                  //Login Button
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(MainPage.routeName);
+                    },
+                    child: Container(
+                      decoration: AppStyles.buttonDecorationStyle,
+                      width: double.infinity,
+                      height: 50.0,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(AppStrings.strLogin,
+                                textAlign: TextAlign.center,
+                                style: AppStyles.buttonTextStyle),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),

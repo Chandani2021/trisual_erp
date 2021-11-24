@@ -24,9 +24,11 @@ class AppStrings {
 
   //Lisitng
   static String strEdit = 'Edit';
+  static String strAdd = 'Add';
   static String strDelete = 'Delete';
   static String strUpdate = 'Update';
-  static String strCancle = 'Cancle';
-  
-  
+  static String strSubmit = 'Submit';
+  static String strCancle = 'Cancel';
+
+  static String strAddGrade = 'Add Grade';
 }
