@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_fonts.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
-import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
 
 class BottomMenuItemListTile extends StatelessWidget {
   final String? title;
+  final VoidCallback? callback;
 
-  const BottomMenuItemListTile({Key? key, this.title}) : super(key: key);
+  const BottomMenuItemListTile({Key? key, this.title, this.callback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Get.toNamed(GradeListPage.routeName);
-      },
+      onTap: callback,
       child: Container(
         margin: const EdgeInsets.only(bottom: 10.0),
         padding: const EdgeInsets.only(

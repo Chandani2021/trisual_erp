@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
-import 'grade_list_tile.dart';
+import 'master_general_list_tile.dart';
 
 class GradeListPage extends StatelessWidget {
   static const String routeName = '/grade_list';
+
   @override
   Widget build(BuildContext context) {
+    var appbarTitle = Get.arguments;
+
     return SafeArea(
       child: Scaffold(
-        appBar: AppBarWithBackButton(title: 'Grade'),
+        appBar: AppBarWithBackButton(title: appbarTitle),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +60,7 @@ class GradeListPage extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (ctx, index) {
-                      return const GradeListTile();
+                      return const MasterGeneralListTile();
                     }),
               ),
             )

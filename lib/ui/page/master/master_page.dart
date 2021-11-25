@@ -1,9 +1,12 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
+import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/master_general_list_page.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
 
 class MasterPage extends StatefulWidget {
@@ -55,6 +58,10 @@ class _MasterPageState extends State<MasterPage> {
             itemBuilder: (context, index) {
               return BottomMenuItemListTile(
                 title: masterList[index],
+                callback: () {
+                  Get.toNamed(MasterGeneralListPage.routeName,
+                      arguments: masterList[index]);
+                },
               );
             }),
       ),
