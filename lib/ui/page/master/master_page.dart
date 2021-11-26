@@ -6,7 +6,7 @@ import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
 import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
-import 'package:trishul_erp/ui/page/master/master_general_list_page.dart';
+import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
 
 class MasterPage extends StatefulWidget {
@@ -59,7 +59,7 @@ class _MasterPageState extends State<MasterPage> {
               return BottomMenuItemListTile(
                 title: masterList[index],
                 callback: () {
-                  Get.toNamed(MasterGeneralListPage.routeName,
+                  Get.toNamed(GradeListPage.routeName,
                       arguments: masterList[index]);
                 },
               );

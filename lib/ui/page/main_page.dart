@@ -80,7 +80,7 @@ class _MainPageState extends State<MainPage> {
     return BottomAppBar(
       child: Container(
         alignment: Alignment.center,
-        height: 66.0,
+        height: 70.0,
         //margin: EdgeInsets.only(left: 30, bottom: 40, right: 30),
         // padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -105,7 +105,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strDashboard,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icDashboard,
                     isSelected: (bottomSelectedIndex == 0) ? true : false),
               ),
             ),
@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strMaster,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icMaster,
                     isSelected: (bottomSelectedIndex == 1) ? true : false),
               ),
             ),
@@ -127,7 +127,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strOrder,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icOrder,
                     isSelected: (bottomSelectedIndex == 2) ? true : false),
               ),
             ),
@@ -138,7 +138,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strProduction,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icProduction,
                     isSelected: (bottomSelectedIndex == 3) ? true : false),
               ),
             ),
@@ -149,7 +149,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strHr,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icHr,
                     isSelected: (bottomSelectedIndex == 4) ? true : false),
               ),
             ),
@@ -160,7 +160,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 child: bottomMenuItem(
                     title: AppStrings.strAccount,
-                    iconPath: AppIcons.icBottomHome,
+                    iconPath: AppIcons.icAccount,
                     isSelected: (bottomSelectedIndex == 5) ? true : false),
               ),
             ),
@@ -179,7 +179,7 @@ class _MainPageState extends State<MainPage> {
       children: [
         Image.asset(
           iconPath,
-          height: 20,
+          height: 25,
           color: (isSelected)
               ? AppColors.selectedBottomBarIconColor
               : AppColors.unselectedBottomBarIconColor,

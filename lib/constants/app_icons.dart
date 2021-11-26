@@ -12,4 +12,11 @@ class AppIcons {
   static String icSeachWhite = '$iconBasePath/icon_search.png';
   static String icEdit = '$iconBasePath/ic_edit.png';
   static String icDelete = '$iconBasePath/ic_delete.png';
+
+  static String icDashboard = '$iconBasePath/ic_dashboard.png';
+  static String icMaster = '$iconBasePath/ic_master.png';
+  static String icOrder = '$iconBasePath/ic_order.png';
+  static String icHr = '$iconBasePath/ic_hr.png';
+  static String icAccount = '$iconBasePath/ic_account.png';
+  static String icProduction = '$iconBasePath/ic_production.png';
 }

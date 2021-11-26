@@ -12,20 +12,20 @@ class BottomMenuItemListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: callback,
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 10.0),
-        padding: const EdgeInsets.only(
-          left: 20.0,
-          top: 10.0,
-          bottom: 10.0,
-          right: 5.0,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(28),
-          color: AppColors.grey8Color,
-        ),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10.0),
+      padding: const EdgeInsets.only(
+        left: 20.0,
+        top: 10.0,
+        bottom: 10.0,
+        right: 5.0,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        color: AppColors.grey8Color,
+      ),
+      child: InkWell(
+        onTap: callback,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -31,4 +31,6 @@ class AppStrings {
   static String strCancle = 'Cancel';
 
   static String strAddGrade = 'Add Grade';
+  static String strAddBrand = 'Add Brand';
+  static String strAddSubType = 'Add SubType';
 }

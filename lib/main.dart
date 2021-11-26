@@ -5,7 +5,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:trishul_erp/ui/page/login/login_page.dart';
 import 'package:trishul_erp/ui/page/main_page.dart';
-import 'package:trishul_erp/ui/page/master/master_general_list_page.dart';
+import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/splash/splash_page.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: SplashPage.routeName, page: () => const SplashPage()),
         GetPage(name: LoginPage.routeName, page: () => LoginPage()),
         GetPage(name: MainPage.routeName, page: () => MainPage()),
-        GetPage(name: MasterGeneralListPage.routeName, page: () => MasterGeneralListPage()),
+        GetPage(name: GradeListPage.routeName, page: () => GradeListPage()),
+        GetPage(name: BrandListPage.routeName, page: () => BrandListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );
