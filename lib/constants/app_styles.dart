@@ -90,7 +90,7 @@ class AppStyles {
     contentPadding: EdgeInsets.zero,
     border: InputBorder.none,
     hintText: 'Search Here',
-    hintStyle: const TextStyle(
+    hintStyle: TextStyle(
       color: AppColors.secondaryTextColor,
       fontWeight: FontWeight.w600,
       fontSize: 14,

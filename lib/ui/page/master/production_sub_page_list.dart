@@ -10,8 +10,17 @@ import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
 import 'master_general_list_tile.dart';
 
-class ProductionSubPageListPage extends StatelessWidget {
+class ProductionSubPageListPage extends StatefulWidget {
   static const String routeName = '/production_sub_list';
+
+  const ProductionSubPageListPage({Key? key}) : super(key: key);
+
+  @override
+  State<ProductionSubPageListPage> createState() =>
+      _ProductionSubPageListPageState();
+}
+
+class _ProductionSubPageListPageState extends State<ProductionSubPageListPage> {
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;
@@ -102,7 +111,7 @@ class ProductionSubPageListPage extends StatelessWidget {
                   );
                 },
                 icon: const Icon(Icons.add),
-                label: Text(AppStrings.strAddSubType),
+                label: Text(AppStrings.strAddType),
               ),
             ),
           ],

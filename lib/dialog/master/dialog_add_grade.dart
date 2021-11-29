@@ -57,7 +57,7 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
             borderRadius: BorderRadius.circular(padding),
           ),
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -67,87 +67,81 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
                   style: AppStyles.dialogHeadingTextStyle,
                   textAlign: TextAlign.center,
                 ),
-
                 const SizedBox(height: 20),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      // Country Code , Mobile Number Text Input Layout
+                      TextFormField(
+                        initialValue: '',
+                        style: AppStyles.textInputTextStyle,
+                        decoration: AppStyles.textFieldInputDecoration.copyWith(
+                            hintText: AppStrings.strHintEnterGradeTitle),
+                        onSaved: (String? value) {
+                          // This optional block of code can be used to run
+                          // code when the user saves the form.
+                          // map['Mobile'] = value!.trim();
+                        },
+                      ),
 
-                // -----***** Country Code - Mobile Number Simple Layout *****-----
-                Container(
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        // Country Code , Mobile Number Text Input Layout
-                        TextFormField(
-                          initialValue: '',
-                          style: AppStyles.textInputTextStyle,
-                          decoration: AppStyles.textFieldInputDecoration
-                              .copyWith(hintText: 'Enter Grade Title'),
-                          onSaved: (String? value) {
-                            // This optional block of code can be used to run
-                            // code when the user saves the form.
-                            // map['Mobile'] = value!.trim();
-                          },
-                        ),
+                      const SizedBox(height: 24),
 
-                        const SizedBox(height: 24),
+                      // -----***** Continue Button *****-----
+                      (_isLoading == true)
+                          ? const CircularProgressIndicator.adaptive()
+                          : GestureDetector(
+                              onTap: () {
+                                DeviceUtils.hideKeyboard(context);
+                                _formKey.currentState!.save();
+                                if (!_formKey.currentState!.validate()) {
+                                  errorMessage = "";
+                                  return;
+                                } else {}
 
-                        // -----***** Continue Button *****-----
-                        (_isLoading == true)
-                            ? CircularProgressIndicator.adaptive()
-                            : GestureDetector(
-                                onTap: () {
-                                  DeviceUtils.hideKeyboard(context);
-                                  _formKey.currentState!.save();
-                                  if (!_formKey.currentState!.validate()) {
-                                    errorMessage = "";
-                                    return;
-                                  } else {}
-
-                                  setState(() {
-                                    errorMessage = "";
-                                    _isLoading = true;
-                                  });
-                                },
-                                child: Container(
-                                  decoration: AppStyles.buttonDecorationStyle,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 15, bottom: 15),
-                                    child: Center(
-                                      child: Text(
-                                        AppStrings.strSubmit,
-                                        style: AppStyles.buttonTextStyle,
-                                      ),
+                                setState(() {
+                                  errorMessage = "";
+                                  _isLoading = true;
+                                });
+                              },
+                              child: Container(
+                                decoration: AppStyles.buttonDecorationStyle,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 15, bottom: 15),
+                                  child: Center(
+                                    child: Text(
+                                      AppStrings.strSubmit,
+                                      style: AppStyles.buttonTextStyle,
                                     ),
                                   ),
                                 ),
                               ),
+                            ),
 
-                        const SizedBox(height: 24),
+                      const SizedBox(height: 24),
 
-                        // -----***** Cancel *****-----
-                        InkWell(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Container(
-                            decoration: AppStyles.buttonDecorationStyle,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 15, bottom: 15),
-                              child: Center(
-                                child: Text(
-                                  AppStrings.strCancle,
-                                  style: AppStyles.buttonTextStyle,
-                                ),
+                      // -----***** Cancel *****-----
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          decoration: AppStyles.buttonDecorationStyle,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
+                            child: Center(
+                              child: Text(
+                                AppStrings.strCancle,
+                                style: AppStyles.buttonTextStyle,
                               ),
                             ),
                           ),
                         ),
+                      ),
 
-                        const SizedBox(height: 29.0),
-                      ],
-                    ),
+                      const SizedBox(height: 29.0),
+                    ],
                   ),
                 ),
               ],

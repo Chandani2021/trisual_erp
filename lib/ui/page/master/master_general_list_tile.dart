@@ -51,7 +51,7 @@ class MasterGeneralListTile extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Image.asset(
                       AppIcons.icEdit,
                       color: AppColors.greenColor,
@@ -74,7 +74,7 @@ class MasterGeneralListTile extends StatelessWidget {
                     });
                   },
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Image.asset(
                       AppIcons.icDelete,
                       color: AppColors.redColor,
@@ -86,7 +86,7 @@ class MasterGeneralListTile extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             height: 1,
             color: AppColors.blackColor,
           )

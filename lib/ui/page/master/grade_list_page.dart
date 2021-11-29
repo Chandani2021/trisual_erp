@@ -12,6 +12,8 @@ import 'master_general_list_tile.dart';
 
 class GradeListPage extends StatelessWidget {
   static const String routeName = '/grade_list';
+
+  const GradeListPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;

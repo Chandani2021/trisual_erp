@@ -6,7 +6,11 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:trishul_erp/ui/page/login/login_page.dart';
 import 'package:trishul_erp/ui/page/main_page.dart';
 import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/core_type_page.dart';
 import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
+import 'package:trishul_erp/ui/page/master/machine_page.dart';
+import 'package:trishul_erp/ui/page/master/product_type_page.dart';
+import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/splash/splash_page.dart';
@@ -33,6 +37,13 @@ class MyApp extends StatelessWidget {
         GetPage(name: MainPage.routeName, page: () => MainPage()),
         GetPage(name: GradeListPage.routeName, page: () => GradeListPage()),
         GetPage(name: BrandListPage.routeName, page: () => BrandListPage()),
+        GetPage(name: ProductTypePage.routeName, page: () => ProductTypePage()),
+        GetPage(
+            name: ProductionSubPageListPage.routeName,
+            page: () => ProductionSubPageListPage()),
+        GetPage(name: ProductTypePage.routeName, page: () => ProductTypePage()),
+        GetPage(name: CoreTypePage.routeName, page: () => CoreTypePage()),
+        GetPage(name: MachinePage.routeName, page: () => MachinePage()),
       ],
       initialRoute: SplashPage.routeName,
     );

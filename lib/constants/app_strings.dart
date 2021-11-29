@@ -33,4 +33,14 @@ class AppStrings {
   static String strAddGrade = 'Add Grade';
   static String strAddBrand = 'Add Brand';
   static String strAddSubType = 'Add SubType';
+  static String strAddType = 'Add Type';
+  static String strAddMachine = 'Add Machine';
+
+  static String strHintEnterGradeTitle = 'Enter Grade Title';
+  static String strHintEnterProductSubTitle = 'Enter Product Sub Title';
+  static String strHintEnterProductType = 'Enter Product Type';
+  static String strHintEnterCoreTitle = 'Enter Core Title';
+   static String strHintEnterMachineTitle = 'Enter Machine Title';
+
+   static String strSelectProcess = 'Select Process';
 }

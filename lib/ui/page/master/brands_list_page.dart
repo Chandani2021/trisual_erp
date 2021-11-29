@@ -12,6 +12,8 @@ import 'master_general_list_tile.dart';
 
 class BrandListPage extends StatelessWidget {
   static const String routeName = '/brand_list';
+
+  const BrandListPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;

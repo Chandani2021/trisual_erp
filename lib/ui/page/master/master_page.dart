@@ -6,7 +6,10 @@ import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
 import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/core_type_page.dart';
 import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
+import 'package:trishul_erp/ui/page/master/machine_page.dart';
+import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
 
 class MasterPage extends StatefulWidget {
@@ -59,8 +62,30 @@ class _MasterPageState extends State<MasterPage> {
               return BottomMenuItemListTile(
                 title: masterList[index],
                 callback: () {
-                  Get.toNamed(GradeListPage.routeName,
-                      arguments: masterList[index]);
+                  if (index == 0) {
+                    Get.toNamed(GradeListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 1) {
+                    Get.toNamed(BrandListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 2) {
+                    Get.toNamed(ProductionSubPageListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 3) {
+                    Get.toNamed(ProductionSubPageListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 4) {
+                    Get.toNamed(CoreTypePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 5) {
+                    Get.toNamed(MachinePage.routeName,
+                        arguments: masterList[index]);
+                  }
                 },
               );
             }),

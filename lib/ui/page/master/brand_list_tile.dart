@@ -29,7 +29,7 @@ class GradeListTile extends StatelessWidget {
             ),
             //Edit Button
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Image.asset(
                 AppIcons.icEdit,
                 color: AppColors.greenColor,
@@ -44,7 +44,7 @@ class GradeListTile extends StatelessWidget {
 
             //Delete Button
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Image.asset(
                 AppIcons.icDelete,
                 color: AppColors.redColor,
