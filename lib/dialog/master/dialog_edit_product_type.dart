@@ -76,9 +76,8 @@ class _DialogEditProductTypeState extends State<DialogEditProductType> {
                       TextFormField(
                         initialValue: '',
                         style: AppStyles.textInputTextStyle,
-                        decoration: AppStyles.textFieldInputDecoration
-                            .copyWith(
-                                hintText: AppStrings.strHintEnterProductType),
+                        decoration: AppStyles.textFieldInputDecoration.copyWith(
+                            hintText: AppStrings.strHintEnterProductType),
                         onSaved: (String? value) {},
                       ),
 
@@ -125,8 +124,7 @@ class _DialogEditProductTypeState extends State<DialogEditProductType> {
                         child: Container(
                           decoration: AppStyles.buttonDecorationStyle,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15, bottom: 15),
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
                             child: Center(
                               child: Text(
                                 AppStrings.strCancle,

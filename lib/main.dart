@@ -5,12 +5,23 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:trishul_erp/ui/page/login/login_page.dart';
 import 'package:trishul_erp/ui/page/main_page.dart';
-import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
-import 'package:trishul_erp/ui/page/master/core_type_page.dart';
-import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
-import 'package:trishul_erp/ui/page/master/machine_page.dart';
-import 'package:trishul_erp/ui/page/master/product_type_page.dart';
+import 'package:trishul_erp/ui/page/master/bin_master/bin_master_page.dart';
+import 'package:trishul_erp/ui/page/master/brand/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/core_type/core_type_page.dart';
+import 'package:trishul_erp/ui/page/master/electricity/electricity_page.dart';
+import 'package:trishul_erp/ui/page/master/furnace/furnace_page.dart';
+import 'package:trishul_erp/ui/page/master/grade/grade_list_page.dart';
+import 'package:trishul_erp/ui/page/master/laddle/laddle_page.dart';
+import 'package:trishul_erp/ui/page/master/machine/machine_page.dart';
+import 'package:trishul_erp/ui/page/master/parameter/parameter_page.dart';
+import 'package:trishul_erp/ui/page/master/product_type/product_type_page.dart';
 import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
+import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_master/rejection_specified_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specified_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_page.dart';
+import 'package:trishul_erp/ui/page/master/report_master/report_master_page.dart';
+import 'package:trishul_erp/ui/page/master/scrap/scrap_page.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/splash/splash_page.dart';
@@ -44,6 +55,24 @@ class MyApp extends StatelessWidget {
         GetPage(name: ProductTypePage.routeName, page: () => ProductTypePage()),
         GetPage(name: CoreTypePage.routeName, page: () => CoreTypePage()),
         GetPage(name: MachinePage.routeName, page: () => MachinePage()),
+        GetPage(
+            name: ProductsListPage.routeName, page: () => ProductsListPage()),
+        GetPage(name: ScrapePage.routeName, page: () => ScrapePage()),
+        GetPage(name: FurnacePage.routeName, page: () => FurnacePage()),
+        GetPage(name: LaddlePage.routeName, page: () => LaddlePage()),
+        GetPage(
+            name: RejectionTypePage.routeName, page: () => RejectionTypePage()),
+        GetPage(
+            name: RejectionSpecifiedPage.routeName,
+            page: () => RejectionSpecifiedPage()),
+        GetPage(name: ElectricityPage.routeName, page: () => ElectricityPage()),
+        GetPage(name: BinMasterPage.routeName, page: () => BinMasterPage()),
+        GetPage(
+            name: RejectionMasterPage.routeName,
+            page: () => RejectionMasterPage()),
+        GetPage(name: ParameterPage.routeName, page: () => ParameterPage()),
+        GetPage(
+            name: ReportMasterPage.routeName, page: () => ReportMasterPage()),
       ],
       initialRoute: SplashPage.routeName,
     );

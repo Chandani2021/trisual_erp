@@ -5,11 +5,22 @@ import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
-import 'package:trishul_erp/ui/page/master/brands_list_page.dart';
-import 'package:trishul_erp/ui/page/master/core_type_page.dart';
-import 'package:trishul_erp/ui/page/master/grade_list_page.dart';
-import 'package:trishul_erp/ui/page/master/machine_page.dart';
+import 'package:trishul_erp/ui/page/master/bin_master/bin_master_page.dart';
+import 'package:trishul_erp/ui/page/master/brand/brands_list_page.dart';
+import 'package:trishul_erp/ui/page/master/core_type/core_type_page.dart';
+import 'package:trishul_erp/ui/page/master/electricity/electricity_page.dart';
+import 'package:trishul_erp/ui/page/master/furnace/furnace_page.dart';
+import 'package:trishul_erp/ui/page/master/grade/grade_list_page.dart';
+import 'package:trishul_erp/ui/page/master/laddle/laddle_page.dart';
+import 'package:trishul_erp/ui/page/master/machine/machine_page.dart';
+import 'package:trishul_erp/ui/page/master/parameter/parameter_page.dart';
 import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
+import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_master/rejection_specified_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specified_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_page.dart';
+import 'package:trishul_erp/ui/page/master/report_master/report_master_page.dart';
+import 'package:trishul_erp/ui/page/master/scrap/scrap_page.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
 
 class MasterPage extends StatefulWidget {
@@ -84,6 +95,54 @@ class _MasterPageState extends State<MasterPage> {
                   }
                   if (index == 5) {
                     Get.toNamed(MachinePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 6) {
+                    Get.toNamed(ProductsListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 7) {
+                    Get.toNamed(ProductsListPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 8) {
+                    Get.toNamed(ScrapePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 9) {
+                    Get.toNamed(FurnacePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 10) {
+                    Get.toNamed(LaddlePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 11) {
+                    Get.toNamed(RejectionTypePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 12) {
+                    Get.toNamed(RejectionMasterPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 13) {
+                    Get.toNamed(ElectricityPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 14) {
+                    Get.toNamed(RejectionSpecifiedPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 15) {
+                    Get.toNamed(BinMasterPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 16) {
+                    Get.toNamed(ParameterPage.routeName,
+                        arguments: masterList[index]);
+                  }
+                  if (index == 17) {
+                    Get.toNamed(ReportMasterPage.routeName,
                         arguments: masterList[index]);
                   }
                 },

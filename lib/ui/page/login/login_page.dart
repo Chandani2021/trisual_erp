@@ -35,12 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             left: 25,
             right: 25,
           ),
-          // decoration: BoxDecoration(
-          //     color: AppColors.whiteColor,
-          //     borderRadius: BorderRadius.only(
-          //       topLeft: Radius.circular(50),
-          //       topRight: Radius.circular(50),
-          //     )),
+       
           child: Align(
             alignment: Alignment.center,
             child: Column(

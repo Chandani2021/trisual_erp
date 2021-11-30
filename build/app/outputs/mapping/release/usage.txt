@@ -2207,8 +2207,8 @@ androidx.loader.app.LoaderManagerImpl
 androidx.loader.app.LoaderManager
 kotlin.text.CharDirectionality$Companion$directionalityMap$2
 com.google.common.collect.Collections2
-androidx.fragment.app.FragmentTransition$4
 androidx.core.provider.SelfDestructiveThread$2
+androidx.fragment.app.FragmentTransition$4
 androidx.loader.R$integer
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.view.DragStartHelper$2
@@ -3528,8 +3528,8 @@ kotlin.jvm.functions.Function15
 com.google.common.collect.StandardTable$Column$EntrySetIterator
 com.google.common.util.concurrent.AggregateFutureState$SafeAtomicHelper
 com.tekartik.sqflite.R$layout
-androidx.core.content.SharedPreferencesCompat$EditorCompat
 androidx.core.app.ShareCompat
+androidx.core.content.SharedPreferencesCompat$EditorCompat
 com.google.common.escape.UnicodeEscaper
 com.google.common.collect.ForwardingNavigableMap
 com.google.common.io.FileWriteMode

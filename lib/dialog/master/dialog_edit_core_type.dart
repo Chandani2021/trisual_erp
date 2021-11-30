@@ -128,8 +128,7 @@ class _DialogEditCoreTypeState extends State<DialogEditCoreType> {
                         child: Container(
                           decoration: AppStyles.buttonDecorationStyle,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15, bottom: 15),
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
                             child: Center(
                               child: Text(
                                 AppStrings.strCancle,

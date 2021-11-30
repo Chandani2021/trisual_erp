@@ -75,9 +75,8 @@ class _DialogAddCoreTypeState extends State<DialogAddCoreType> {
                       TextFormField(
                         initialValue: '',
                         style: AppStyles.textInputTextStyle,
-                        decoration: AppStyles.textFieldInputDecoration
-                            .copyWith(
-                                hintText: AppStrings.strHintEnterCoreTitle),
+                        decoration: AppStyles.textFieldInputDecoration.copyWith(
+                            hintText: AppStrings.strHintEnterCoreTitle),
                         onSaved: (String? value) {
                           // This optional block of code can be used to run
                           // code when the user saves the form.
@@ -129,8 +128,7 @@ class _DialogAddCoreTypeState extends State<DialogAddCoreType> {
                         child: Container(
                           decoration: AppStyles.buttonDecorationStyle,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15, bottom: 15),
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
                             child: Center(
                               child: Text(
                                 AppStrings.strCancle,
