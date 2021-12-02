@@ -34,10 +34,13 @@ class AppStrings {
   static String strAddBrand = 'Add Brand';
   static String strAddSubType = 'Add SubType';
   static String strAddType = 'Add Type';
+  static String strAddProduct = 'Add Product';
+
   static String strAddMachine = 'Add Machine';
   static String strAddCoreType = 'Add Core Type';
   static String strAddProducts = 'Add Products';
   static String strAddScrap = 'Add Scrap';
+  static String strAddFurnace = 'Add Furnace';
   static String strAddLaddle = 'Add Laddle';
   static String strAddRejectionType = 'Add Rejection';
   static String strAddReport = 'Add Report Master';
@@ -51,8 +54,15 @@ class AppStrings {
   static String strHintEnterGradeTitle = 'Enter Grade Title';
   static String strHintEnterProductSubTitle = 'Enter Product Sub Title';
   static String strHintEnterProductType = 'Enter Product Type';
+  static String strHintEnterProduct = 'Enter Product';
   static String strHintEnterCoreTitle = 'Enter Core Title';
   static String strHintEnterMachineTitle = 'Enter Machine Title';
+  static String strHintEnterFurnaceTitle = 'Enter Furnace';
+  static String strHintEnterScrapTitle = 'Enter Scrape';
+  static String strHintEnterLaddle = 'Enter Laddle';
 
   static String strSelectProcess = 'Select Process';
+
+  static String strHintEnterRejectionName = 'Enter Rejection Name';
+  static String strHintEnterShortName = 'Enter Short Name';
 }

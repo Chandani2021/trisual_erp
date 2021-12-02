@@ -21,7 +21,7 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
   double padding = 20;
   double avatarRadius = 25;
   late final String title;
-  var _selectedProcess='';
+  var _selectedProcess = '';
 
   var _isLoading = false;
   String errorMessage = "";
@@ -77,10 +77,8 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
                       TextFormField(
                         initialValue: '',
                         style: AppStyles.textInputTextStyle,
-                        decoration: AppStyles.textFieldInputDecoration
-                            .copyWith(
-                                hintText:
-                                    AppStrings.strHintEnterMachineTitle),
+                        decoration: AppStyles.textFieldInputDecoration.copyWith(
+                            hintText: AppStrings.strHintEnterMachineTitle),
                         onSaved: (String? value) {},
                       ),
                       const SizedBox(
@@ -177,8 +175,7 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
                         child: Container(
                           decoration: AppStyles.buttonDecorationStyle,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15, bottom: 15),
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
                             child: Center(
                               child: Text(
                                 AppStrings.strCancle,

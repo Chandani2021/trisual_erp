@@ -7,11 +7,13 @@ import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_edit_grade.dart';
 
 class MasterGeneralListTile extends StatelessWidget {
-  final VoidCallback? callback;
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
 
   const MasterGeneralListTile({
     Key? key,
-    this.callback,
+    this.deleteCallback,
+    this.editCallback,
   }) : super(key: key);
 
   @override

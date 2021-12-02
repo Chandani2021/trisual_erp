@@ -5,11 +5,11 @@ import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_grade.dart';
+import 'package:trishul_erp/dialog/master/dialog_add_product.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
 import '../master_general_list_tile.dart';
-
 
 class ProductsListPage extends StatefulWidget {
   static const String routeName = '/products_list';
@@ -17,8 +17,7 @@ class ProductsListPage extends StatefulWidget {
   const ProductsListPage({Key? key}) : super(key: key);
 
   @override
-  State<ProductsListPage> createState() =>
-      _ProductsListPageState();
+  State<ProductsListPage> createState() => _ProductsListPageState();
 }
 
 class _ProductsListPageState extends State<ProductsListPage> {
@@ -105,14 +104,14 @@ class _ProductsListPageState extends State<ProductsListPage> {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return const DialogAddGrade(
+                      return const DialogAddProduct(
                         title: '+91',
                       );
                     },
                   );
                 },
                 icon: const Icon(Icons.add),
-                label: Text(AppStrings.strAddType),
+                label: Text(AppStrings.strAddProduct),
               ),
             ),
           ],

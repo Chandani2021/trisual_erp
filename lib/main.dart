@@ -24,6 +24,7 @@ import 'package:trishul_erp/ui/page/master/report_master/report_master_page.dart
 import 'package:trishul_erp/ui/page/master/scrap/scrap_page.dart';
 
 import 'constants/app_colors.dart';
+import 'ui/page/master/reason_master/reason_master_page.dart';
 import 'ui/page/splash/splash_page.dart';
 
 void main() {
@@ -73,6 +74,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: ParameterPage.routeName, page: () => ParameterPage()),
         GetPage(
             name: ReportMasterPage.routeName, page: () => ReportMasterPage()),
+        GetPage(
+            name: ReasonMasterPage.routeName, page: () => ReasonMasterPage()),
       ],
       initialRoute: SplashPage.routeName,
     );

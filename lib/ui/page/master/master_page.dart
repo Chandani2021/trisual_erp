@@ -14,8 +14,10 @@ import 'package:trishul_erp/ui/page/master/grade/grade_list_page.dart';
 import 'package:trishul_erp/ui/page/master/laddle/laddle_page.dart';
 import 'package:trishul_erp/ui/page/master/machine/machine_page.dart';
 import 'package:trishul_erp/ui/page/master/parameter/parameter_page.dart';
+import 'package:trishul_erp/ui/page/master/product_type/product_type_page.dart';
 import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
 import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
+import 'package:trishul_erp/ui/page/master/reason_master/reason_master_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_master/rejection_specified_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specified_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_page.dart';
@@ -81,14 +83,15 @@ class _MasterPageState extends State<MasterPage> {
                     Get.toNamed(BrandListPage.routeName,
                         arguments: masterList[index]);
                   }
-                  if (index == 2) {
-                    Get.toNamed(ProductionSubPageListPage.routeName,
+                   if (index == 2) {
+                    Get.toNamed(ProductTypePage.routeName,
                         arguments: masterList[index]);
                   }
                   if (index == 3) {
                     Get.toNamed(ProductionSubPageListPage.routeName,
                         arguments: masterList[index]);
                   }
+                 
                   if (index == 4) {
                     Get.toNamed(CoreTypePage.routeName,
                         arguments: masterList[index]);
@@ -101,24 +104,25 @@ class _MasterPageState extends State<MasterPage> {
                     Get.toNamed(ProductsListPage.routeName,
                         arguments: masterList[index]);
                   }
+                 
                   if (index == 7) {
-                    Get.toNamed(ProductsListPage.routeName,
-                        arguments: masterList[index]);
-                  }
-                  if (index == 8) {
                     Get.toNamed(ScrapePage.routeName,
                         arguments: masterList[index]);
                   }
-                  if (index == 9) {
+                  if (index == 8) {
                     Get.toNamed(FurnacePage.routeName,
                         arguments: masterList[index]);
                   }
-                  if (index == 10) {
+                  if (index == 9) {
                     Get.toNamed(LaddlePage.routeName,
                         arguments: masterList[index]);
                   }
-                  if (index == 11) {
+                  if (index == 10) {
                     Get.toNamed(RejectionTypePage.routeName,
+                        arguments: masterList[index]);
+                  }
+                   if (index == 11) {
+                    Get.toNamed(ReasonMasterPage.routeName,
                         arguments: masterList[index]);
                   }
                   if (index == 12) {

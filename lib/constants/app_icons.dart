@@ -19,4 +19,6 @@ class AppIcons {
   static String icHr = '$iconBasePath/ic_hr.png';
   static String icAccount = '$iconBasePath/ic_account.png';
   static String icProduction = '$iconBasePath/ic_production.png';
+  static String icSwitchOn = '$iconBasePath/ic_switch_on.png';
+  static String icSwitchOff = '$iconBasePath/ic_switch_off.png';
 }
