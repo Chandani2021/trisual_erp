@@ -4,15 +4,23 @@ import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
-import 'package:trishul_erp/dialog/master/dialog_add_machine.dart';
-import 'package:trishul_erp/ui/page/master/machine/machine_list_tile.dart';
-
+import 'package:trishul_erp/dialog/master/dialog_add_bin.dart';
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
-class BinMasterPage extends StatelessWidget {
+import 'bin_master_list_tile.dart';
+
+class BinMasterPage extends StatefulWidget {
   static const String routeName = '/bin_master';
 
   const BinMasterPage({Key? key}) : super(key: key);
+
+  @override
+  State<BinMasterPage> createState() => _BinMasterPageState();
+}
+
+class _BinMasterPageState extends State<BinMasterPage> {
+ 
+
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;
@@ -80,7 +88,7 @@ class BinMasterPage extends StatelessWidget {
                           physics: const BouncingScrollPhysics(),
                           itemCount: 10,
                           itemBuilder: (ctx, index) {
-                            return const MachineListTile();
+                            return const BinMasterListTile();
                           }),
                     ),
                   ),
@@ -96,9 +104,7 @@ class BinMasterPage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return const DialogAddMachine(
-                        title: '+91',
-                      );
+                      return const DialogAddBin();
                     },
                   );
                 },

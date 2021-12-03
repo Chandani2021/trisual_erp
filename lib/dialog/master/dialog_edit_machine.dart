@@ -21,7 +21,7 @@ class _DialogEditMachineState extends State<DialogEditMachine> {
   double padding = 20;
   double avatarRadius = 25;
   late final String title;
-  var _selectedProcess='';
+  var _selectedProcess = '';
 
   var _isLoading = false;
   String errorMessage = "";
@@ -77,10 +77,8 @@ class _DialogEditMachineState extends State<DialogEditMachine> {
                       TextFormField(
                         initialValue: '',
                         style: AppStyles.textInputTextStyle,
-                        decoration: AppStyles.textFieldInputDecoration
-                            .copyWith(
-                                hintText:
-                                    AppStrings.strHintEnterMachineTitle),
+                        decoration: AppStyles.textFieldInputDecoration.copyWith(
+                            hintText: AppStrings.strHintEnterMachineTitle),
                         onSaved: (String? value) {},
                       ),
                       const SizedBox(
@@ -99,7 +97,7 @@ class _DialogEditMachineState extends State<DialogEditMachine> {
                                 width: 0.7, color: AppColors.grey6Color)),
                         child: DropdownButton<String>(
                           focusColor: Colors.white,
-                          value: _selectedProcess,
+                          // value: _selectedProcess,
                           underline: const SizedBox.shrink(),
                           //elevation: 5,
                           style: const TextStyle(color: Colors.white),
@@ -177,8 +175,7 @@ class _DialogEditMachineState extends State<DialogEditMachine> {
                         child: Container(
                           decoration: AppStyles.buttonDecorationStyle,
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15, bottom: 15),
+                            padding: const EdgeInsets.only(top: 15, bottom: 15),
                             child: Center(
                               child: Text(
                                 AppStrings.strCancle,

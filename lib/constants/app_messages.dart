@@ -16,16 +16,14 @@ class AppErrorMessage {
 //Otp Verification
   static String strErrEnterPin = "Please enter otp";
 
-//Create Password
+  //Create Password
   static String strErrEnterEmail = "Please enter email address";
   static String strErrEnterEmailNotValid = "Please enter valid email address";
   static String strErrEnterPassword = "Please enter password";
   static String strErrEnterMinPassword =
       "Minimum ${AppConstant.minPasswordLength} length required";
-
   static String strErrEnterConfirmPwdMissMatch =
       "Both Password are not matched";
-
   static String strDlt = "Delete";
   static String strDltItemMsg = "Do you really want to delete this item ?";
   static String strYes = "Yes";

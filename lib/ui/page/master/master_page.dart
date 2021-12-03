@@ -18,7 +18,7 @@ import 'package:trishul_erp/ui/page/master/product_type/product_type_page.dart';
 import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
 import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
 import 'package:trishul_erp/ui/page/master/reason_master/reason_master_page.dart';
-import 'package:trishul_erp/ui/page/master/rejection_master/rejection_specified_page.dart';
+import 'package:trishul_erp/ui/page/master/rejection_master/rejection_master_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specified_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_page.dart';
 import 'package:trishul_erp/ui/page/master/report_master/report_master_page.dart';

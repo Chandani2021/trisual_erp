@@ -65,4 +65,27 @@ class AppStrings {
 
   static String strHintEnterRejectionName = 'Enter Rejection Name';
   static String strHintEnterShortName = 'Enter Short Name';
+  static String strHintEnterReason = 'Enter Reason';
+
+  static String strActive = 'Active';
+  static String strFilled = 'Filled';
+
+  static String strStartPanel1Reading = 'Start Panel 1 Reading : ';
+  static String strEndPanel1Reading = 'End Panel 1 Reading : ';
+  static String strStartPanel2Reading = 'Start Panel 2 Reading : ';
+  static String strEndPanel2Reading = 'End Panel 2 Reading : ';
+  static String strDifference = 'Difference';
+  static String strUnit = 'Unit';
+  static String strStartTime = 'Start Time';
+  static String strEndTime = 'End Time';
+
+  static String strType = 'Type : ';
+  static String strControl = 'Control : ';
+  static String strSpecification = 'Specification : ';
+  static String strProcess = 'Process : ';
+
+  static String strCreatedBy = 'Created By : ';
+  static String strModifiedBy = 'Modified By : ';
+  static String strCreatedDate = 'Created Date : ';
+  static String strModifiedDate = 'Modified Date : ';
 }

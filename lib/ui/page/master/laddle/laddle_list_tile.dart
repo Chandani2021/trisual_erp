@@ -48,8 +48,7 @@ class _LaddleListTileState extends State<LaddleListTile> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Machine Name',
-                          style: AppStyles.txtListLblTextStyle),
+                      Text('Name', style: AppStyles.txtListLblTextStyle),
                       Row(
                         children: [
                           Text('Status : ',

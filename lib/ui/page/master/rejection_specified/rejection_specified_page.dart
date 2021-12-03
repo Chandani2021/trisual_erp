@@ -6,6 +6,7 @@ import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_machine.dart';
 import 'package:trishul_erp/ui/page/master/machine/machine_list_tile.dart';
+import 'package:trishul_erp/ui/page/master/master_general_list_tile.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
@@ -80,7 +81,7 @@ class RejectionSpecifiedPage extends StatelessWidget {
                           physics: const BouncingScrollPhysics(),
                           itemCount: 10,
                           itemBuilder: (ctx, index) {
-                            return const MachineListTile();
+                            return const MasterGeneralListTile();
                           }),
                     ),
                   ),
@@ -93,14 +94,14 @@ class RejectionSpecifiedPage extends StatelessWidget {
               child: FloatingActionButton.extended(
                 backgroundColor: AppColors.greyColor,
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return const DialogAddMachine(
-                        title: '+91',
-                      );
-                    },
-                  );
+                  // showDialog(
+                  //   context: context,
+                  //   builder: (BuildContext context) {
+                  //     return const DialogAddMachine(
+                  //       title: '+91',
+                  //     );
+                  //   },
+                  // );
                 },
                 icon: const Icon(Icons.add),
                 label: Text(AppStrings.strAddReasonSpecified),
