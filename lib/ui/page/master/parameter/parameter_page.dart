@@ -4,7 +4,6 @@ import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
-import 'package:trishul_erp/dialog/master/dialog_add_machine.dart';
 import 'package:trishul_erp/ui/page/master/parameter/parameter_list_tile.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';

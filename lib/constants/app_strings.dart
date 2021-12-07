@@ -108,4 +108,23 @@ class AppStrings {
   static String strWorkOrderNo = 'Work Order No : ';
   static String strOrderStatus = 'Order Status : ';
   static String strAddOrder = 'Add Order';
+
+  static String strCreatedAt = 'Created At : ';
+  static String strModifiedAt = 'Modified At : ';
+
+  static String strAddDesignation = 'Add Designation';
+  static String strAddDepartment = 'Add Department';
+  static String strAddContractor = 'Add Contractor';
+
+  static String strHintEnterDesignation = 'Enter Designation';
+  static String strHintEnterDepartment = 'Enter Department';
+  static String strHintEnterContractor = 'Enter Contractor';
+
+  static String strCode = 'Code : ';
+  static String strGender = 'Gender : ';
+  static String strSalary = 'Salary : ';
+  static String strAge = 'Age : ';
+  static String strJoiningDate = 'Joining Date : ';
+  static String strDepartment = 'Department : ';
+  static String strDesignation = 'Designation : ';
 }

@@ -21,8 +21,6 @@ class _DialogAddBinState extends State<DialogAddBin> {
   double padding = 20;
   double avatarRadius = 25;
   late final String title;
-  var _selectedActive = '';
-  var _selectedFilled = '';
 
   List<String> item = ['Yes', 'No'];
 
@@ -90,7 +88,7 @@ class _DialogAddBinState extends State<DialogAddBin> {
 
                       //Active
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           left: 10,
                           right: 10,
                         ),
@@ -113,14 +111,12 @@ class _DialogAddBinState extends State<DialogAddBin> {
                           }).toList(),
                           hint: Text(
                             AppStrings.strSelectProcess,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.grey,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500),
                           ),
-                          onChanged: (String? value) {
-                            _selectedActive = value!;
-                          },
+                          onChanged: (String? value) {},
                         ),
                       ),
 
@@ -163,30 +159,58 @@ class _DialogAddBinState extends State<DialogAddBin> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500),
                           ),
-                          onChanged: (String? value) {
-                            _selectedFilled = value!;
-                          },
+                          onChanged: (String? value) {},
                         ),
                       ),
 
                       const SizedBox(height: 24),
 
-                      // -----***** Continue Button *****-----
-                      (_isLoading == true)
-                          ? const CircularProgressIndicator.adaptive()
-                          : GestureDetector(
-                              onTap: () {
-                                DeviceUtils.hideKeyboard(context);
-                                _formKey.currentState!.save();
-                                if (!_formKey.currentState!.validate()) {
-                                  errorMessage = "";
-                                  return;
-                                } else {}
+                      Row(
+                        children: [
+                          // -----***** Continue Button *****-----
+                          (_isLoading == true)
+                              ? const CircularProgressIndicator.adaptive()
+                              : Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      DeviceUtils.hideKeyboard(context);
+                                      _formKey.currentState!.save();
+                                      if (!_formKey.currentState!.validate()) {
+                                        errorMessage = "";
+                                        return;
+                                      } else {}
 
-                                setState(() {
-                                  errorMessage = "";
-                                  _isLoading = true;
-                                });
+                                      setState(() {
+                                        errorMessage = "";
+                                        _isLoading = true;
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration:
+                                          AppStyles.buttonDecorationStyle,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 15, bottom: 15),
+                                        child: Center(
+                                          child: Text(
+                                            AppStrings.strSubmit,
+                                            style: AppStyles.buttonTextStyle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                          const SizedBox(
+                            width: 20,
+                          ),
+
+                          // -----***** Cancel *****-----
+                          Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                Get.back();
                               },
                               child: Container(
                                 decoration: AppStyles.buttonDecorationStyle,
@@ -195,33 +219,15 @@ class _DialogAddBinState extends State<DialogAddBin> {
                                       top: 15, bottom: 15),
                                   child: Center(
                                     child: Text(
-                                      AppStrings.strSubmit,
+                                      AppStrings.strCancle,
                                       style: AppStyles.buttonTextStyle,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-
-                      const SizedBox(height: 24),
-
-                      // -----***** Cancel *****-----
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          decoration: AppStyles.buttonDecorationStyle,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 15, bottom: 15),
-                            child: Center(
-                              child: Text(
-                                AppStrings.strCancle,
-                                style: AppStyles.buttonTextStyle,
-                              ),
-                            ),
                           ),
-                        ),
+                        ],
                       ),
 
                       const SizedBox(height: 29.0),

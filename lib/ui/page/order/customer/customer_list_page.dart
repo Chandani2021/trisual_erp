@@ -6,8 +6,6 @@ import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_grade.dart';
 import 'package:trishul_erp/ui/page/order/customer/customer_order_list_tile.dart';
-import 'package:trishul_erp/ui/page/order/sell_order/sell_order_list_tile.dart';
-
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
 class CustomerListPage extends StatelessWidget {

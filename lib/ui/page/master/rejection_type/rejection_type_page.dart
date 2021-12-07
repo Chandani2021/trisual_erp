@@ -4,7 +4,6 @@ import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
-import 'package:trishul_erp/dialog/master/dialog_add_machine.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_rejection_type.dart';
 import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_list_tile.dart';
 

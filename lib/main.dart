@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:trishul_erp/ui/page/hr/contractors/contractor_list_page.dart';
+import 'package:trishul_erp/ui/page/hr/department/department_list_page.dart';
+import 'package:trishul_erp/ui/page/hr/designation/designation_list_page.dart';
 import 'package:trishul_erp/ui/page/login/login_page.dart';
 import 'package:trishul_erp/ui/page/main_page.dart';
 import 'package:trishul_erp/ui/page/master/bin_master/bin_master_page.dart';
@@ -87,6 +90,15 @@ class MyApp extends StatelessWidget {
             name: SellOrderListPage.routeName, page: () => SellOrderListPage()),
         GetPage(
             name: WorkOrderListPage.routeName, page: () => WorkOrderListPage()),
+        GetPage(
+            name: DesignationListPage.routeName,
+            page: () => DesignationListPage()),
+        GetPage(
+            name: DepartmentListPage.routeName,
+            page: () => DepartmentListPage()),
+        GetPage(
+            name: ContractorListPage.routeName,
+            page: () => ContractorListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );

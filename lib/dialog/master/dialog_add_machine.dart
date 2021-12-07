@@ -84,7 +84,6 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       Container(
                         padding: const EdgeInsets.only(
                           left: 10,
@@ -130,25 +129,53 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
                           },
                         ),
                       ),
-
                       const SizedBox(height: 24),
+                      Row(
+                        children: [
+                          // -----***** Continue Button *****-----
+                          (_isLoading == true)
+                              ? const CircularProgressIndicator.adaptive()
+                              : Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      DeviceUtils.hideKeyboard(context);
+                                      _formKey.currentState!.save();
+                                      if (!_formKey.currentState!.validate()) {
+                                        errorMessage = "";
+                                        return;
+                                      } else {}
 
-                      // -----***** Continue Button *****-----
-                      (_isLoading == true)
-                          ? const CircularProgressIndicator.adaptive()
-                          : GestureDetector(
+                                      setState(() {
+                                        errorMessage = "";
+                                        _isLoading = true;
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration:
+                                          AppStyles.buttonDecorationStyle,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 15, bottom: 15),
+                                        child: Center(
+                                          child: Text(
+                                            AppStrings.strSubmit,
+                                            style: AppStyles.buttonTextStyle,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                          const SizedBox(
+                            width: 20,
+                          ),
+
+                          // -----***** Cancel *****-----
+                          Expanded(
+                            child: InkWell(
                               onTap: () {
-                                DeviceUtils.hideKeyboard(context);
-                                _formKey.currentState!.save();
-                                if (!_formKey.currentState!.validate()) {
-                                  errorMessage = "";
-                                  return;
-                                } else {}
-
-                                setState(() {
-                                  errorMessage = "";
-                                  _isLoading = true;
-                                });
+                                Get.back();
                               },
                               child: Container(
                                 decoration: AppStyles.buttonDecorationStyle,
@@ -157,35 +184,16 @@ class _DialogAddMachineState extends State<DialogAddMachine> {
                                       top: 15, bottom: 15),
                                   child: Center(
                                     child: Text(
-                                      AppStrings.strSubmit,
+                                      AppStrings.strCancle,
                                       style: AppStyles.buttonTextStyle,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-
-                      const SizedBox(height: 24),
-
-                      // -----***** Cancel *****-----
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          decoration: AppStyles.buttonDecorationStyle,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 15, bottom: 15),
-                            child: Center(
-                              child: Text(
-                                AppStrings.strCancle,
-                                style: AppStyles.buttonTextStyle,
-                              ),
-                            ),
                           ),
-                        ),
+                        ],
                       ),
-
                       const SizedBox(height: 29.0),
                     ],
                   ),

@@ -6,7 +6,6 @@ import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_edit_grade.dart';
-import 'package:trishul_erp/dialog/master/dialog_edit_machine.dart';
 
 class ElectricityListTile extends StatelessWidget {
   final VoidCallback? callback;
