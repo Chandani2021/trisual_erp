@@ -22,6 +22,10 @@ import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specifi
 import 'package:trishul_erp/ui/page/master/rejection_type/rejection_type_page.dart';
 import 'package:trishul_erp/ui/page/master/report_master/report_master_page.dart';
 import 'package:trishul_erp/ui/page/master/scrap/scrap_page.dart';
+import 'package:trishul_erp/ui/page/order/customer/customer_list_page.dart';
+import 'package:trishul_erp/ui/page/order/order_page.dart';
+import 'package:trishul_erp/ui/page/order/sell_order/sell_order_list_page.dart';
+import 'package:trishul_erp/ui/page/order/work_order/Work_order_list_page.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/master/reason_master/reason_master_page.dart';
@@ -76,6 +80,13 @@ class MyApp extends StatelessWidget {
             name: ReportMasterPage.routeName, page: () => ReportMasterPage()),
         GetPage(
             name: ReasonMasterPage.routeName, page: () => ReasonMasterPage()),
+        GetPage(name: OrderPage.routeName, page: () => OrderPage()),
+        GetPage(
+            name: CustomerListPage.routeName, page: () => CustomerListPage()),
+        GetPage(
+            name: SellOrderListPage.routeName, page: () => SellOrderListPage()),
+        GetPage(
+            name: WorkOrderListPage.routeName, page: () => WorkOrderListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );

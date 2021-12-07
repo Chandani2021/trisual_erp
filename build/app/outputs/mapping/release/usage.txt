@@ -2207,8 +2207,8 @@ androidx.loader.app.LoaderManagerImpl
 androidx.loader.app.LoaderManager
 kotlin.text.CharDirectionality$Companion$directionalityMap$2
 com.google.common.collect.Collections2
-androidx.core.provider.SelfDestructiveThread$2
 androidx.fragment.app.FragmentTransition$4
+androidx.core.provider.SelfDestructiveThread$2
 androidx.loader.R$integer
 androidx.core.graphics.TypefaceCompatApi26Impl
 androidx.core.view.DragStartHelper$2

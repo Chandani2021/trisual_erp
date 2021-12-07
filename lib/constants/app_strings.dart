@@ -88,4 +88,24 @@ class AppStrings {
   static String strModifiedBy = 'Modified By : ';
   static String strCreatedDate = 'Created Date : ';
   static String strModifiedDate = 'Modified Date : ';
+
+  //Order
+  static String strAddCompany = 'Add Company';
+
+  static String strName = 'Name : ';
+  static String strPhone = 'Phone : ';
+  static String strEmail = 'Email : ';
+  static String strAddress = 'Address : ';
+  static String strNotifyPerson = 'Notify Person : ';
+
+  static String strPerFormNo = 'PerForm No : ';
+  static String strCustomerPomNo = 'Customer PO Number : ';
+  static String strCustomerName = 'Customer Name : ';
+  static String strTotalPrice = 'Total Price : ';
+  static String strStatus = 'Status : ';
+  static String strCustomerOrderDate = 'Customer Order Date : ';
+
+  static String strWorkOrderNo = 'Work Order No : ';
+  static String strOrderStatus = 'Order Status : ';
+  static String strAddOrder = 'Add Order';
 }

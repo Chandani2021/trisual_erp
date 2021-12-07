@@ -11,6 +11,7 @@ class AppIcons {
   static String icLogout = '$iconBasePath/icon_logout.png';
   static String icSeachWhite = '$iconBasePath/icon_search.png';
   static String icEdit = '$iconBasePath/ic_edit.png';
+  static String icList = '$iconBasePath/ic_list.png';
   static String icDelete = '$iconBasePath/ic_delete.png';
 
   static String icDashboard = '$iconBasePath/ic_dashboard.png';

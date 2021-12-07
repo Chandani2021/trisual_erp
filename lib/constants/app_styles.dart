@@ -83,6 +83,12 @@ class AppStyles {
       color: AppColors.blackColor,
       fontWeight: FontWeight.w500);
 
+  static TextStyle txtListValueTextStyle = const TextStyle(
+      fontFamily: appFontFamily,
+      fontSize: 18,
+      color: AppColors.blackColor,
+      fontWeight: FontWeight.w300);
+
   static BoxDecoration roundButtonDecorationStyle = BoxDecoration(
       borderRadius: BorderRadius.circular(20), color: AppColors.toolbarColor);
 
