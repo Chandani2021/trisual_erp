@@ -1,10 +1,18 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
+import 'package:trishul_erp/ui/page/production/core_marketing/coremaking_list_page.dart';
+import 'package:trishul_erp/ui/page/production/melting/melting_list_page.dart';
+import 'package:trishul_erp/ui/page/production/moulding/moulding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/sand_preparation/sand_preparation_list_page.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
+
+import 'process/process_list_page.dart';
+import 'sand_inward/sandinward_list_page.dart';
 
 class ProductionPage extends StatefulWidget {
   @override
@@ -51,6 +59,32 @@ class _ProductionPageState extends State<ProductionPage> {
             itemBuilder: (context, index) {
               return BottomMenuItemListTile(
                 title: productionList[index],
+                callback: () {
+                  if (index == 0) {
+                    Get.toNamed(SandIndwardListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 1) {
+                    Get.toNamed(ProcessListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 2) {
+                    Get.toNamed(SandPreparationListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 3) {
+                    Get.toNamed(CoreMakingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 4) {
+                    Get.toNamed(MouldingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 5) {
+                    Get.toNamed(MeltingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                },
               );
             }),
       ),

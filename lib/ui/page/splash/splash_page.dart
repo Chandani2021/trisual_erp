@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
     ));
     super.initState();
     _visible = !_visible;
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 2), () {
       Get.toNamed(LoginPage.routeName);
     });
   }

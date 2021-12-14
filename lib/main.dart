@@ -29,9 +29,15 @@ import 'package:trishul_erp/ui/page/order/customer/customer_list_page.dart';
 import 'package:trishul_erp/ui/page/order/order_page.dart';
 import 'package:trishul_erp/ui/page/order/sell_order/sell_order_list_page.dart';
 import 'package:trishul_erp/ui/page/order/work_order/Work_order_list_page.dart';
+import 'package:trishul_erp/ui/page/production/core_marketing/coremaking_list_page.dart';
+import 'package:trishul_erp/ui/page/production/melting/melting_list_page.dart';
+import 'package:trishul_erp/ui/page/production/moulding/moulding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/sand_inward/sandinward_list_page.dart';
+import 'package:trishul_erp/ui/page/production/sand_preparation/sand_preparation_list_page.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/master/reason_master/reason_master_page.dart';
+import 'ui/page/production/process/process_list_page.dart';
 import 'ui/page/splash/splash_page.dart';
 
 void main() {
@@ -99,6 +105,19 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: ContractorListPage.routeName,
             page: () => ContractorListPage()),
+        GetPage(
+            name: SandIndwardListPage.routeName,
+            page: () => SandIndwardListPage()),
+        GetPage(name: ProcessListPage.routeName, page: () => ProcessListPage()),
+        GetPage(
+            name: SandPreparationListPage.routeName,
+            page: () => SandPreparationListPage()),
+        GetPage(
+            name: CoreMakingListPage.routeName,
+            page: () => CoreMakingListPage()),
+        GetPage(
+            name: MouldingListPage.routeName, page: () => MouldingListPage()),
+        GetPage(name: MeltingListPage.routeName, page: () => MeltingListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );

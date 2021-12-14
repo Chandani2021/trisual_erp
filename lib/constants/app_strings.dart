@@ -127,4 +127,49 @@ class AppStrings {
   static String strJoiningDate = 'Joining Date : ';
   static String strDepartment = 'Department : ';
   static String strDesignation = 'Designation : ';
+
+  static String strAddSendInward = 'Add Sand Inward';
+  static String strAddProcess = 'Add Process';
+  static String strSandType = 'Sand Type : ';
+  static String strBoxType = 'Box Type : ';
+  static String strKG = 'KG : ';
+
+  static String strHeatCode = 'Heat Code : ';
+  static String strWorkOrder = 'Work Order : ';
+  static String strProduct = 'Product : ';
+  static String strBrand = 'Brand : ';
+  static String strPatternNo = 'Pattern No : ';
+  static String strGrade = 'Grade : ';
+  static String strPatternOk = 'Pattern OK : ';
+  static String strHeatCodeFixed = 'Heat Code Fixed : ';
+  static String strGettingCharged = 'Getting Charged : ';
+  static String strGettingRevision = 'Getting Revision No : ';
+  static String strPatternHeated = 'Pattern Heated : ';
+  static String strCoreStock = 'Core Stock : ';
+  static String strWorkOrderQty = 'Work Order Qty : ';
+  static String strPriority = 'Priority : ';
+  static String strCoreType = 'Core Type : ';
+  static String strCoreMask = 'Core Mask : ';
+  static String strFilterUsed = 'Filter Used : ';
+  static String strDuplexing = 'Duplexing/Induction : ';
+  static String strRequiredQty = 'Required Qty : ';
+
+  static String strAddSandInward = 'Add Sand Inward';
+  static String strAddSandProduction = 'Add Sand Prodcution';
+  static String strAddProduction = 'Add Prodcution';
+  static String strAddMould = 'Add Mould';
+  static String strOrderQty = 'Order Qty : ';
+  static String strNoOfOkMould = 'Number of OK Mould : ';
+  static String strActualMouldSize = 'Actual Mould Size : ';
+  static String strDailyReport = 'Daily Report';
+  
+  static String strProductionQty = 'Production Qty : ';
+  
+  static String strScrapType = 'Scrap Type : ';
+  static String strFurnace = 'Furnace : ';
+  static String strOperator = 'Operator : ';
+
+  
+
+  
 }
