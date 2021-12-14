@@ -160,16 +160,23 @@ class AppStrings {
   static String strAddMould = 'Add Mould';
   static String strOrderQty = 'Order Qty : ';
   static String strNoOfOkMould = 'Number of OK Mould : ';
+  static String strNoOfMould = 'Number of Mould : ';
+  static String strLaddleWeight = 'Laddle Weight : ';
   static String strActualMouldSize = 'Actual Mould Size : ';
   static String strDailyReport = 'Daily Report';
-  
+  static String strAddPouring = 'Add Pouring';
   static String strProductionQty = 'Production Qty : ';
-  
+
   static String strScrapType = 'Scrap Type : ';
   static String strFurnace = 'Furnace : ';
   static String strOperator = 'Operator : ';
 
-  
+  static String strHeatNumber = 'Heat Number : ';
+  static String strOkQty = 'OK Qty : ';
+  static String strRemainingQty = 'Remaining Qty : ';
+  static String strFace = 'Face : ';
 
-  
+  static String strOrderNo = 'Order No: ';
+  static String strAmount = 'Amount: ';
+  static String strDispatch = 'Dispatch';
 }

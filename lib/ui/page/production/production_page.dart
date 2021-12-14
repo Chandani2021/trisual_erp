@@ -5,12 +5,20 @@ import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/ui/page/bottome_menu_item_list/bottom_menu_item_list_tile.dart';
+import 'package:trishul_erp/ui/page/production/cleaning/cleaning_list_page.dart';
 import 'package:trishul_erp/ui/page/production/core_marketing/coremaking_list_page.dart';
+import 'package:trishul_erp/ui/page/production/dispatch/dispatch_list_page.dart';
+import 'package:trishul_erp/ui/page/production/grinding/grinding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/machining/machning_list_page.dart';
 import 'package:trishul_erp/ui/page/production/melting/melting_list_page.dart';
 import 'package:trishul_erp/ui/page/production/moulding/moulding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/packing/packing_list_page.dart';
+import 'package:trishul_erp/ui/page/production/pouring/pouring_list_page.dart';
 import 'package:trishul_erp/ui/page/production/sand_preparation/sand_preparation_list_page.dart';
 import 'package:trishul_erp/widgets/widget_bottom_appbar.dart';
 
+import 'knockout/knockout_list_page.dart';
+import 'painting_coating/painting_coating_list_page.dart';
 import 'process/process_list_page.dart';
 import 'sand_inward/sandinward_list_page.dart';
 
@@ -82,6 +90,38 @@ class _ProductionPageState extends State<ProductionPage> {
                   }
                   if (index == 5) {
                     Get.toNamed(MeltingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 6) {
+                    Get.toNamed(PouringListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 7) {
+                    Get.toNamed(KnockoutListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 8) {
+                    Get.toNamed(CleaningListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 9) {
+                    Get.toNamed(GrindingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 10) {
+                    Get.toNamed(PaintingCoatingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 11) {
+                    Get.toNamed(MachningListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 12) {
+                    Get.toNamed(PackingListPage.routeName,
+                        arguments: productionList[index]);
+                  }
+                  if (index == 13) {
+                    Get.toNamed(DispatchListPage.routeName,
                         arguments: productionList[index]);
                   }
                 },

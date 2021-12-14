@@ -3528,8 +3528,8 @@ kotlin.jvm.functions.Function15
 com.google.common.collect.StandardTable$Column$EntrySetIterator
 com.google.common.util.concurrent.AggregateFutureState$SafeAtomicHelper
 com.tekartik.sqflite.R$layout
-androidx.core.content.SharedPreferencesCompat$EditorCompat
 androidx.core.app.ShareCompat
+androidx.core.content.SharedPreferencesCompat$EditorCompat
 com.google.common.escape.UnicodeEscaper
 com.google.common.collect.ForwardingNavigableMap
 com.google.common.io.FileWriteMode

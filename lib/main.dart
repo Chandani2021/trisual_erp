@@ -29,14 +29,22 @@ import 'package:trishul_erp/ui/page/order/customer/customer_list_page.dart';
 import 'package:trishul_erp/ui/page/order/order_page.dart';
 import 'package:trishul_erp/ui/page/order/sell_order/sell_order_list_page.dart';
 import 'package:trishul_erp/ui/page/order/work_order/Work_order_list_page.dart';
+import 'package:trishul_erp/ui/page/production/cleaning/cleaning_list_page.dart';
 import 'package:trishul_erp/ui/page/production/core_marketing/coremaking_list_page.dart';
+import 'package:trishul_erp/ui/page/production/grinding/grinding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/knockout/knockout_list_page.dart';
+import 'package:trishul_erp/ui/page/production/machining/machning_list_page.dart';
 import 'package:trishul_erp/ui/page/production/melting/melting_list_page.dart';
 import 'package:trishul_erp/ui/page/production/moulding/moulding_list_page.dart';
+import 'package:trishul_erp/ui/page/production/packing/packing_list_page.dart';
+import 'package:trishul_erp/ui/page/production/pouring/pouring_list_page.dart';
 import 'package:trishul_erp/ui/page/production/sand_inward/sandinward_list_page.dart';
 import 'package:trishul_erp/ui/page/production/sand_preparation/sand_preparation_list_page.dart';
 
 import 'constants/app_colors.dart';
 import 'ui/page/master/reason_master/reason_master_page.dart';
+import 'ui/page/production/dispatch/dispatch_list_page.dart';
+import 'ui/page/production/painting_coating/painting_coating_list_page.dart';
 import 'ui/page/production/process/process_list_page.dart';
 import 'ui/page/splash/splash_page.dart';
 
@@ -118,6 +126,21 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: MouldingListPage.routeName, page: () => MouldingListPage()),
         GetPage(name: MeltingListPage.routeName, page: () => MeltingListPage()),
+        GetPage(name: PouringListPage.routeName, page: () => PouringListPage()),
+        GetPage(
+            name: KnockoutListPage.routeName, page: () => KnockoutListPage()),
+        GetPage(
+            name: CleaningListPage.routeName, page: () => CleaningListPage()),
+        GetPage(
+            name: GrindingListPage.routeName, page: () => GrindingListPage()),
+        GetPage(
+            name: PaintingCoatingListPage.routeName,
+            page: () => PaintingCoatingListPage()),
+        GetPage(
+            name: MachningListPage.routeName, page: () => MachningListPage()),
+        GetPage(name: PackingListPage.routeName, page: () => PackingListPage()),
+        GetPage(
+            name: DispatchListPage.routeName, page: () => DispatchListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );
