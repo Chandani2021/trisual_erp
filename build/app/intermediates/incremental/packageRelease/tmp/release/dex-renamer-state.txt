@@ -1,4 +1,4 @@
-#Tue Dec 14 14:34:29 IST 2021
+#Tue Dec 14 21:19:36 IST 2021
 base.0=E\:\\Raiyani Work\\Trishul Erp\\Code\\trishul_erp\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

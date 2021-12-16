@@ -26,6 +26,8 @@ class AppErrorMessage {
       "Both Password are not matched";
   static String strDlt = "Delete";
   static String strDltItemMsg = "Do you really want to delete this item ?";
+  static String strDeactivateUserMsg = "Do you really want to deactivate this user ?";
+  static String strDeactivateUser = "Deactivate User";
   static String strYes = "Yes";
   static String strNo = "No";
 }

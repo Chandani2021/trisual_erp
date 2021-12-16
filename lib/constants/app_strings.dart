@@ -49,6 +49,7 @@ class AppStrings {
   static String strAddReason = 'Add Reason';
   static String strAddParameter = 'Add Parameter';
   static String strAddBin = 'Add Bin';
+  static String strBin = 'Bin';
   static String strAddElectricity = 'Add Electricity';
 
   static String strHintEnterGradeTitle = 'Enter Grade Title';
@@ -179,4 +180,16 @@ class AppStrings {
   static String strOrderNo = 'Order No: ';
   static String strAmount = 'Amount: ';
   static String strDispatch = 'Dispatch';
+
+  static String strUser = 'User';
+  static String strTransactionNumber = 'Transaction Number';
+  static String strDate = 'Date';
+  static String strTime = 'Time';
+  static String strFrom = 'From';
+  static String strTo = 'To';
+  static String strQty = 'Qty';
+
+  static String strStartDate = 'Start Date';
+  static String strEndDate = 'End Date';
+  static String strSearch = 'Search';
 }

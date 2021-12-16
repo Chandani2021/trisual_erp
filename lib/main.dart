@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:trishul_erp/ui/page/account/challan/challan_list_page.dart';
 import 'package:trishul_erp/ui/page/hr/contractors/contractor_list_page.dart';
 import 'package:trishul_erp/ui/page/hr/department/department_list_page.dart';
 import 'package:trishul_erp/ui/page/hr/designation/designation_list_page.dart';
@@ -42,6 +43,7 @@ import 'package:trishul_erp/ui/page/production/sand_inward/sandinward_list_page.
 import 'package:trishul_erp/ui/page/production/sand_preparation/sand_preparation_list_page.dart';
 
 import 'constants/app_colors.dart';
+import 'ui/page/account/users/users_list_page.dart';
 import 'ui/page/master/reason_master/reason_master_page.dart';
 import 'ui/page/production/dispatch/dispatch_list_page.dart';
 import 'ui/page/production/painting_coating/painting_coating_list_page.dart';
@@ -141,6 +143,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: PackingListPage.routeName, page: () => PackingListPage()),
         GetPage(
             name: DispatchListPage.routeName, page: () => DispatchListPage()),
+        GetPage(name: UsersListPage.routeName, page: () => UsersListPage()),
+        GetPage(name: ChallanListPage.routeName, page: () => ChallanListPage()),
       ],
       initialRoute: SplashPage.routeName,
     );
