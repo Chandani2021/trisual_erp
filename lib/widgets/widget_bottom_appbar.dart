@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
+import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/ui/page/login/login_page.dart';
+import 'package:trishul_erp/view/adaptive_dialog.dart';
 
 /* @Auther : Hardik Kotadiya
    This class will be used for app bar with back button
@@ -41,7 +45,7 @@ class BottomMenuAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Text(title, style: AppStyles.appBarTitleStyle),
               ),
               actions: [
-                GestureDetector(
+                InkWell(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20.0),
                     child: SizedBox(
@@ -54,7 +58,29 @@ class BottomMenuAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                   onTap: () {
-                    Get.back();
+                    showDialog<bool>(
+                    context: context,
+                    builder: (context) {
+                      return AdaptiveDialog(
+                        AppMessage.strLogout,
+                        AppMessage.strNo,
+                        AppMessage.strYes,
+                        () {
+                          // final preference =
+                          //     await SharedPreferences.getInstance();
+                          // preference.clear();
+                          Navigator.of(context).pop(false);
+                        },
+                        () async {
+                          final preference =
+                              await SharedPreferences.getInstance();
+                          preference.clear();
+                          Navigator.of(context).pop(false);
+                          Get.offAllNamed(LoginPage.routeName);
+                        },
+                      );
+                    },
+                  );
                   },
                 )
               ],

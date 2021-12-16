@@ -70,8 +70,8 @@ class MasterGeneralListTile extends StatelessWidget {
                 //Delete Button
                 InkWell(
                   onTap: () {
-                    AppHelper.showAlertDialog(AppErrorMessage.strDlt,
-                        AppErrorMessage.strDltItemMsg, context, () {}, () {
+                    AppHelper.showAlertDialog(AppMessage.strDlt,
+                        AppMessage.strDltItemMsg, context, () {}, () {
                       Navigator.of(context).pop();
                     });
                   },

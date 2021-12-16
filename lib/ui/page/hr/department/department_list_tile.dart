@@ -118,8 +118,8 @@ class DepartmentListTile extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               AppHelper.showAlertDialog(
-                                  AppErrorMessage.strDlt,
-                                  AppErrorMessage.strDltItemMsg,
+                                  AppMessage.strDlt,
+                                  AppMessage.strDltItemMsg,
                                   context,
                                   () {}, () {
                                 Navigator.of(context).pop();

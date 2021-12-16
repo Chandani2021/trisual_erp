@@ -64,6 +64,11 @@ class AppStyles {
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: AppColors.greyColor, width: 1.0),
     ),
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: AppColors.greyColor, width: 1.0),
+    ),
+    errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.greyColor, width: 1.0)),
     hintStyle: TextStyle(
         color: AppColors.hintTextColor,
         fontSize: 15.0,

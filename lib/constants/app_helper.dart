@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'app_messages.dart';
@@ -21,12 +23,12 @@ class AppHelper {
           ),
           actions: <Widget>[
             TextButton(
-                child: Text(AppErrorMessage.strYes),
+                child: Text(AppMessage.strYes),
                 onPressed: () {
                   positiveCallback();
                 }),
             TextButton(
-              child: Text(AppErrorMessage.strNo),
+              child: Text(AppMessage.strNo),
               onPressed: () {
                 negativeCallback();
               },
@@ -35,5 +37,16 @@ class AppHelper {
         );
       },
     );
+  }
+
+  static void hideKeyboard(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (Platform.isIOS) {
+      if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      }
+    } else if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
   }
 }

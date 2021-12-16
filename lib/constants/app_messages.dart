@@ -1,8 +1,11 @@
 // Error Messages
 import 'app_constants.dart';
 
-class AppErrorMessage {
+class AppMessage {
   static String strSomethingWentWrong = "Something went wrong";
+
+  static String strErrEnterPassword = "Please enter password";
+  static String strErrEnterUsername = "Please enter username";
 
 //Create Account
   static String strErrEnterFullName = "Please enter full name";
@@ -19,15 +22,16 @@ class AppErrorMessage {
   //Create Password
   static String strErrEnterEmail = "Please enter email address";
   static String strErrEnterEmailNotValid = "Please enter valid email address";
-  static String strErrEnterPassword = "Please enter password";
   static String strErrEnterMinPassword =
       "Minimum ${AppConstant.minPasswordLength} length required";
   static String strErrEnterConfirmPwdMissMatch =
       "Both Password are not matched";
   static String strDlt = "Delete";
   static String strDltItemMsg = "Do you really want to delete this item ?";
-  static String strDeactivateUserMsg = "Do you really want to deactivate this user ?";
+  static String strDeactivateUserMsg =
+      "Do you really want to deactivate this user ?";
   static String strDeactivateUser = "Deactivate User";
   static String strYes = "Yes";
   static String strNo = "No";
+  static String strLogout = 'Do you really want to logout from app?';
 }

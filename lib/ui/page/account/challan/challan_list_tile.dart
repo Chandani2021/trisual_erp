@@ -165,8 +165,8 @@ class ChallanListTile extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               AppHelper.showAlertDialog(
-                                  AppErrorMessage.strDeactivateUser,
-                                  AppErrorMessage.strDeactivateUserMsg,
+                                  AppMessage.strDeactivateUser,
+                                  AppMessage.strDeactivateUserMsg,
                                   context,
                                   () {}, () {
                                 Navigator.of(context).pop();

@@ -5,8 +5,11 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/ui/page/login/login_page.dart';
+
+import '../main_page.dart';
 
 class SplashPage extends StatefulWidget {
   static const routeName = '/splash';
@@ -24,8 +27,14 @@ class _SplashPageState extends State<SplashPage> {
     ));
     super.initState();
     _visible = !_visible;
-    Timer(Duration(seconds: 2), () {
-      Get.toNamed(LoginPage.routeName);
+    Timer(const Duration(seconds: 2), () async {
+      final preference = await SharedPreferences.getInstance();
+      String? userID = preference.getString('userID');
+      if (userID != null) {
+        Get.offAndToNamed(MainPage.routeName);
+      } else {
+        Get.offAndToNamed(LoginPage.routeName);
+      }
     });
   }
 
