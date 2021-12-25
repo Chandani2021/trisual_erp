@@ -19,8 +19,6 @@ class BinMasterPage extends StatefulWidget {
 }
 
 class _BinMasterPageState extends State<BinMasterPage> {
- 
-
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;

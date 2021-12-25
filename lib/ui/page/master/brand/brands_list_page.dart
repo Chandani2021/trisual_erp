@@ -1,19 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_grade.dart';
+import 'package:trishul_erp/model/brand_list_model.dart';
+import 'package:trishul_erp/view/toast.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
 import '../master_general_list_tile.dart';
+import 'brand_list_tile.dart';
 
-class BrandListPage extends StatelessWidget {
+class BrandListPage extends StatefulWidget {
   static const String routeName = '/brand_list';
 
   const BrandListPage({Key? key}) : super(key: key);
+
+  @override
+  State<BrandListPage> createState() => _BrandListPageState();
+}
+
+class _BrandListPageState extends State<BrandListPage> {
+  List<AllBrands> data = [];
+  bool _isLoading = false;
+
+  Future brandList(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+    return await API.brandList(context).then((response) {
+      setState(() {
+        _isLoading = false;
+      });
+      if (response!.code == '200') {
+        setState(() {
+          data = response.data!.allBrands!;
+          print('dataaa' + data.length.toString());
+        });
+      } else if (response.code == '401') {
+        Toast.show(context, response.message!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    if (mounted) {
+      brandList(context);
+    }
+    super.initState();
+  }
+
+  void _deleteBrand(int index) async {
+    if (mounted) {
+      setState(() {
+        data.removeAt(index);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;
@@ -70,22 +122,28 @@ class BrandListPage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Expanded(
-                  child: MediaQuery.removePadding(
-                    context: context,
-                    removeTop: true,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: 10,
-                          itemBuilder: (ctx, index) {
-                            return const MasterGeneralListTile();
-                          }),
-                    ),
-                  ),
-                )
+                _isLoading
+                    ? const Center(child: CircularProgressIndicator.adaptive())
+                    : Expanded(
+                        child: MediaQuery.removePadding(
+                          context: context,
+                          removeTop: true,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 50),
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: 10,
+                                itemBuilder: (ctx, index) {
+                                  return BrandListTile(
+                                    deleteCallback: () {},
+                                    editCallback: () {},
+                                    brandItem: data[index],
+                                  );
+                                }),
+                          ),
+                        ),
+                      )
               ],
             ),
             Positioned(

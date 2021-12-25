@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/model/brand_list_model.dart';
 
-class GradeListTile extends StatelessWidget {
-  const GradeListTile({
+class BrandListTile extends StatelessWidget {
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
+  final AllBrands? brandItem;
+  const BrandListTile({
     Key? key,
+    this.deleteCallback,
+    this.editCallback,
+    this.brandItem,
   }) : super(key: key);
 
   @override
@@ -24,7 +31,7 @@ class GradeListTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Text('Indward Hot Box Sand',
+              child: Text(brandItem!.name.toString(),
                   style: AppStyles.txtListLblTextStyle),
             ),
             //Edit Button

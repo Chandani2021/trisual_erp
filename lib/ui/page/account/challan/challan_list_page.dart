@@ -19,6 +19,20 @@ class ChallanListPage extends StatefulWidget {
 
 class _ChallanListPageState extends State<ChallanListPage> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;
@@ -41,15 +55,21 @@ class _ChallanListPageState extends State<ChallanListPage> {
                     Row(
                       children: [
                         Expanded(
-                          child: TextFormField(
-                            style: AppStyles.textInputTextStyle,
-                            decoration: AppStyles.textFieldInputDecoration
-                                .copyWith(hintText: AppStrings.strStartDate),
-                            onSaved: (String? value) {
-                              // This optional block of code can be used to run
-                              // code when the user saves the form.
-                              // map['Mobile'] = value!.trim();
+                          child: InkWell(
+                            onTap: () {
+                              _selectDate(context);
                             },
+                            child: TextFormField(
+                              enabled: false,
+                              style: AppStyles.textInputTextStyle,
+                              decoration: AppStyles.textFieldInputDecoration
+                                  .copyWith(hintText: AppStrings.strStartDate),
+                              onSaved: (String? value) {
+                                // This optional block of code can be used to run
+                                // code when the user saves the form.
+                                // map['Mobile'] = value!.trim();
+                              },
+                            ),
                           ),
                         ),
                         const SizedBox(

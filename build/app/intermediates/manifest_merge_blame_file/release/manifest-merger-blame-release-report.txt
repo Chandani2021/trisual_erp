@@ -10,76 +10,80 @@
 9        android:targetSdkVersion="30" />
 9-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml
 10
-11    <application
-11-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:3:4-40:19
-12        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-12-->[androidx.core:core:1.1.0] C:\Users\ADMIN\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
-13        android:icon="@mipmap/ic_launcher"
-13-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:5:9-43
-14        android:label="trishul_erp" >
-14-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:4:9-36
-15        <activity
-15-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:6:9-34:20
-16            android:name="com.example.trishul_erp.MainActivity"
-16-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:7:13-41
-17            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-17-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:10:13-163
-18            android:hardwareAccelerated="true"
-18-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:11:13-47
-19            android:launchMode="singleTop"
-19-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:8:13-43
-20            android:theme="@style/LaunchTheme"
-20-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:9:13-47
-21            android:windowSoftInputMode="adjustResize" >
-21-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:12:13-55
-22
-23            <!--
-24                 Specifies an Android theme to apply to this Activity as soon as
-25                 the Android process has started. This theme is visible to the user
-26                 while the Flutter UI initializes. After that, this theme continues
-27                 to determine the Window background behind the Flutter UI.
-28            -->
-29            <meta-data
-29-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:17:13-20:17
-30                android:name="io.flutter.embedding.android.NormalTheme"
-30-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:18:15-70
-31                android:resource="@style/NormalTheme" />
-31-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:19:15-52
-32            <!--
-33                 Displays an Android View that continues showing the launch screen
-34                 Drawable until Flutter paints its first frame, then this splash
-35                 screen fades out. A splash screen is useful to avoid any visual
-36                 gap between the end of Android's launch screen and the painting of
-37                 Flutter's first frame.
-38            -->
-39            <meta-data
-39-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:26:13-29:17
-40                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-40-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:27:15-79
-41                android:resource="@drawable/launch_background" />
-41-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:28:15-61
-42
-43            <intent-filter>
-43-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:30:13-33:29
-44                <action android:name="android.intent.action.MAIN" />
-44-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:31:17-68
-44-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:31:25-66
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-46-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:32:17-76
-46-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:32:27-74
-47            </intent-filter>
-48        </activity>
-49        <!--
-50             Don't delete the meta-data below.
-51             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-52        -->
-53        <meta-data
-53-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:37:9-39:33
-54            android:name="flutterEmbedding"
-54-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:38:13-44
-55            android:value="2" />
-55-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:39:13-30
-56    </application>
-57
-58</manifest>
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:4:5-67
+11-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:4:22-64
+12
+13    <application
+13-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:6:4-43:19
+14        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+14-->[androidx.core:core:1.1.0] C:\Users\ADMIN\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
+15        android:icon="@mipmap/ic_launcher"
+15-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:8:9-43
+16        android:label="trishul_erp" >
+16-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:7:9-36
+17        <activity
+17-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:9:9-37:20
+18            android:name="com.example.trishul_erp.MainActivity"
+18-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:10:13-41
+19            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+19-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:13:13-163
+20            android:hardwareAccelerated="true"
+20-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:14:13-47
+21            android:launchMode="singleTop"
+21-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:11:13-43
+22            android:theme="@style/LaunchTheme"
+22-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:12:13-47
+23            android:windowSoftInputMode="adjustResize" >
+23-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:15:13-55
+24
+25            <!--
+26                 Specifies an Android theme to apply to this Activity as soon as
+27                 the Android process has started. This theme is visible to the user
+28                 while the Flutter UI initializes. After that, this theme continues
+29                 to determine the Window background behind the Flutter UI.
+30            -->
+31            <meta-data
+31-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:20:13-23:17
+32                android:name="io.flutter.embedding.android.NormalTheme"
+32-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:21:15-70
+33                android:resource="@style/NormalTheme" />
+33-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:22:15-52
+34            <!--
+35                 Displays an Android View that continues showing the launch screen
+36                 Drawable until Flutter paints its first frame, then this splash
+37                 screen fades out. A splash screen is useful to avoid any visual
+38                 gap between the end of Android's launch screen and the painting of
+39                 Flutter's first frame.
+40            -->
+41            <meta-data
+41-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:29:13-32:17
+42                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+42-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:30:15-79
+43                android:resource="@drawable/launch_background" />
+43-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:31:15-61
+44
+45            <intent-filter>
+45-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:33:13-36:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:34:17-68
+46-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:34:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:35:17-76
+48-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:35:27-74
+49            </intent-filter>
+50        </activity>
+51        <!--
+52             Don't delete the meta-data below.
+53             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+54        -->
+55        <meta-data
+55-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:40:9-42:33
+56            android:name="flutterEmbedding"
+56-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:41:13-44
+57            android:value="2" />
+57-->E:\Raiyani Work\Trishul Erp\Code\trishul_erp\android\app\src\main\AndroidManifest.xml:42:13-30
+58    </application>
+59
+60</manifest>

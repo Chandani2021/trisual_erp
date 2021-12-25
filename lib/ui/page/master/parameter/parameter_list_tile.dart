@@ -1,18 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_helper.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/model/common_model.dart';
+import 'package:trishul_erp/model/parameter_list_model.dart';
+import 'package:trishul_erp/view/toast.dart';
 
-class ParameterListTile extends StatelessWidget {
-  final VoidCallback? callback;
+class ParameterListTile extends StatefulWidget {
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
+  final AllParameters? parameterItem;
 
   const ParameterListTile({
     Key? key,
-    this.callback,
+    this.deleteCallback,
+    this.editCallback,
+    this.parameterItem,
   }) : super(key: key);
+
+  @override
+  State<ParameterListTile> createState() => _ParameterListTileState();
+}
+
+class _ParameterListTileState extends State<ParameterListTile> {
+  bool _isDeleting = false;
+
+  Future deleteParameter(BuildContext context) async {
+    setState(() {
+      _isDeleting = true;
+    });
+    return await API
+        .deleteParameter(context, widget.parameterItem!.id!)
+        .then((CommonModel? response) {
+      setState(() {
+        _isDeleting = false;
+      });
+      if (response!.code == '200') {
+        Toast.show(context, response.msg!);
+        widget.deleteCallback!();
+      } else if (response.code == '401') {
+        Toast.show(context, response.msg!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isDeleting = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +83,15 @@ class ParameterListTile extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: Text('Name',
+                            child: Text(widget.parameterItem!.name.toString(),
                                 style: AppStyles.txtListLblTextStyle),
                           ),
 
                           //Delete Button
                           InkWell(
                             onTap: () {
-                              AppHelper.showAlertDialog(
-                                  AppMessage.strDlt,
-                                  AppMessage.strDltItemMsg,
-                                  context,
-                                  () {}, () {
+                              AppHelper.showAlertDialog(AppMessage.strDlt,
+                                  AppMessage.strDltItemMsg, context, () {}, () {
                                 Navigator.of(context).pop();
                               });
                             },
@@ -85,7 +120,8 @@ class ParameterListTile extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text('10', style: AppStyles.txtListLblTextStyle),
+                          Text(widget.parameterItem!.unit.toString(),
+                              style: AppStyles.txtListLblTextStyle),
                           const SizedBox(
                             width: 15,
                           ),
@@ -104,7 +140,9 @@ class ParameterListTile extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text('Value Range Parameter',
+                          Text(
+                              widget.parameterItem!.parameterType!.type
+                                  .toString(),
                               style: AppStyles.txtListLblTextStyle),
                           const SizedBox(
                             width: 15,
@@ -124,7 +162,10 @@ class ParameterListTile extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text('TextBox', style: AppStyles.txtListLblTextStyle),
+                          Text(
+                              widget.parameterItem!.parameterType!.control
+                                  .toString(),
+                              style: AppStyles.txtListLblTextStyle),
                           const SizedBox(
                             width: 15,
                           ),
@@ -143,7 +184,13 @@ class ParameterListTile extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text('MaxValue : 47',
+                          Text(
+                              'MinValue : ' +
+                                  widget.parameterItem!.specs!.maxValue
+                                      .toString() +
+                                  ', MinValue : ' +
+                                  widget.parameterItem!.specs!.minValue
+                                      .toString(),
                               style: AppStyles.txtListLblTextStyle),
                           const SizedBox(
                             width: 15,

@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_fonts.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
+import 'package:trishul_erp/model/login_model.dart';
 import 'package:trishul_erp/ui/page/account/account_page.dart';
 import 'package:trishul_erp/ui/page/dashboard/dashboard_page.dart';
 import 'package:trishul_erp/ui/page/hr/hr_page.dart';
@@ -23,6 +25,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int bottomSelectedIndex = 0;
+  List<Menu>? menu = [];
 
   PageController pageController = PageController(
     initialPage: 0,
@@ -50,6 +53,10 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     bottomTapped(0);
+    /* menu = Get.arguments;  
+    for (int i = 0; i < menu!.length; i++) {
+      print('menu--->' + menu![i].name.toString());
+    } */
   }
 
   void pageChanged(int index) {
@@ -199,5 +206,4 @@ class _MainPageState extends State<MainPage> {
       ],
     );
   }
-
 }

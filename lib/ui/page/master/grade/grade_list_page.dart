@@ -1,19 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_add_grade.dart';
+import 'package:trishul_erp/model/grade_list_model.dart';
+import 'package:trishul_erp/ui/page/master/grade/grade_list_tile.dart';
+import 'package:trishul_erp/view/toast.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
-import '../master_general_list_tile.dart';
-
-class GradeListPage extends StatelessWidget {
+class GradeListPage extends StatefulWidget {
   static const String routeName = '/grade_list';
 
   const GradeListPage({Key? key}) : super(key: key);
+
+  @override
+  State<GradeListPage> createState() => _GradeListPageState();
+}
+
+class _GradeListPageState extends State<GradeListPage> {
+  List<AllGrade> data = [];
+  bool _isLoading = false;
+
+  Future gradeList(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+    return await API.gradeList(context).then((response) {
+      setState(() {
+        _isLoading = false;
+      });
+      if (response!.code == '200') {
+        setState(() {
+          data = response.data!.allGrade!;
+          print('dataaa' + data.length.toString());
+        });
+      } else if (response.code == '401') {
+        Toast.show(context, response.message!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    if (mounted) {
+      gradeList(context);
+    }
+    super.initState();
+  }
+
+  void _deleteGrade(int index) async {
+    if (mounted) {
+      setState(() {
+        data.removeAt(index);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;
@@ -71,20 +121,29 @@ class GradeListPage extends StatelessWidget {
                   height: 10,
                 ),
                 Expanded(
-                  child: MediaQuery.removePadding(
-                    context: context,
-                    removeTop: true,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: 10,
-                          itemBuilder: (ctx, index) {
-                            return const MasterGeneralListTile();
-                          }),
-                    ),
-                  ),
+                  child: _isLoading
+                      ? const Center(
+                          child: CircularProgressIndicator.adaptive())
+                      : MediaQuery.removePadding(
+                          context: context,
+                          removeTop: true,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 50),
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: data.length,
+                                itemBuilder: (ctx, index) {
+                                  return GradeListTile(
+                                    editCallback: () {},
+                                    deleteCallback: () {
+                                      _deleteGrade(index);
+                                    },
+                                    gradeItem: data[index],
+                                  );
+                                }),
+                          ),
+                        ),
                 )
               ],
             ),

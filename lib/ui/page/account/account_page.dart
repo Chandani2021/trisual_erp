@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trishul_erp/constants/app_images.dart';
 import 'package:trishul_erp/constants/app_padding.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
@@ -19,10 +20,12 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   final List<String> adminstratorList = [];
+  String? userName;
 
   @override
   void initState() {
     addAdminstratorList();
+    getUserName();
     super.initState();
   }
 
@@ -60,7 +63,7 @@ class _AccountPageState extends State<AccountPage> {
                     height: 10,
                   ),
                   Text(
-                    'Username',
+                    userName!,
                     style: AppStyles.lableTextStyle.copyWith(fontSize: 20),
                   ),
                 ],
@@ -102,5 +105,12 @@ class _AccountPageState extends State<AccountPage> {
         ),
       ),
     );
+  }
+
+  void getUserName() async {
+    final preference = await SharedPreferences.getInstance();
+    setState(() {
+      userName = preference.getString('name') ?? '';
+    });
   }
 }
