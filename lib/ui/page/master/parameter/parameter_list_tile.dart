@@ -34,7 +34,7 @@ class _ParameterListTileState extends State<ParameterListTile> {
       _isDeleting = true;
     });
     return await API
-        .deleteParameter(context, widget.parameterItem!.id!)
+        .deleteDesignation(context, widget.parameterItem!.id!)
         .then((CommonModel? response) {
       setState(() {
         _isDeleting = false;

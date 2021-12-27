@@ -365,4 +365,41 @@ class API {
       return null;
     }
   }
+
+   //Delete Designation
+  static Future<CommonModel?> deleteDesignation(BuildContext context, String? id,
+      {bool showNoInternet = false}) async {
+    const String TAG = 'delete_designation';
+    CommonModel data;
+
+    String apiUrl = Endpoints.deleteDesignation;
+    var url = Uri.parse(apiUrl);
+    showLog('${TAG}_URL: ' + url.toString());
+    var body = {
+      'id': id,
+      'Activity': 'Delete',
+    };
+    showLog('${TAG}_body: ' + body.toString());
+    try {
+      final response = await http.post(
+        url,
+        headers: await getHeader(),
+        body: body,
+      );
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
+
+      data = CommonModel.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: $error');
+      return null;
+    }
+  }
 }

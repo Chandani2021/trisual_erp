@@ -1,18 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
+import 'package:trishul_erp/constants/app_fonts.dart';
 import 'package:trishul_erp/constants/app_helper.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
+import 'package:trishul_erp/model/common_model.dart';
+import 'package:trishul_erp/model/designation_list_model.dart';
+import 'package:trishul_erp/view/toast.dart';
 import 'package:trishul_erp/widgets/widget_list_tile_item.dart';
 
-class DesignationListTile extends StatelessWidget {
-  final VoidCallback? callback;
+class DesignationListTile extends StatefulWidget {
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
+  final AllDesignation? designationItem;
 
   const DesignationListTile({
     Key? key,
-    this.callback,
+    this.deleteCallback,
+    this.editCallback,
+    this.designationItem,
   }) : super(key: key);
+
+  @override
+  State<DesignationListTile> createState() => _DesignationListTileState();
+}
+
+class _DesignationListTileState extends State<DesignationListTile> {
+  bool _isDeleting = false;
+
+  Future deleteDesignation(BuildContext context) async {
+    setState(() {
+      _isDeleting = true;
+    });
+    return await API
+        .deleteDesignation(context, widget.designationItem!.id!)
+        .then((CommonModel? response) {
+      setState(() {
+        _isDeleting = false;
+      });
+      if (response!.code == '200') {
+        Toast.show(context, response.msg!);
+        widget.deleteCallback!();
+      } else if (response.code == '401') {
+        Toast.show(context, response.msg!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isDeleting = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +87,7 @@ class DesignationListTile extends StatelessWidget {
                       ),
                       ListTileItem(
                         lblText: AppStrings.strName,
-                        valueText: 'ADMIN',
+                        valueText: widget.designationItem!.name.toString(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -57,7 +96,8 @@ class DesignationListTile extends StatelessWidget {
                       //Created At
                       ListTileItem(
                         lblText: AppStrings.strCreatedAt,
-                        valueText: '25-12-2021',
+                        valueText:
+                            widget.designationItem!.createdDate.toString(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -66,7 +106,7 @@ class DesignationListTile extends StatelessWidget {
                       //Created By
                       ListTileItem(
                         lblText: AppStrings.strCreatedBy,
-                        valueText: 'Admin',
+                        valueText: widget.designationItem!.createdBy.toString(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -75,7 +115,8 @@ class DesignationListTile extends StatelessWidget {
                       //Modified At
                       ListTileItem(
                         lblText: AppStrings.strModifiedAt,
-                        valueText: 'ABC XYZ',
+                        valueText:
+                            widget.designationItem!.modifiedDate.toString(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -84,19 +125,32 @@ class DesignationListTile extends StatelessWidget {
                       //Modified By
                       ListTileItem(
                         lblText: AppStrings.strModifiedBy,
-                        valueText: 'ABC',
+                        valueText:
+                            widget.designationItem!.modifiedBy.toString(),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //Edit Button
-                          InkWell(
-                            onTap: () {
-                              /*  showDialog(
+                      _isDeleting
+                          ? const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Text(
+                                'We are processing your request to delete this item...',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: appFontFamily,
+                                  fontSize: 15,
+                                  color: AppColors.blackColor,
+                                ),
+                              ),
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                //Edit Button
+                                InkWell(
+                                  onTap: () {
+                                    /*  showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return const DialogEditMachine(
@@ -104,41 +158,41 @@ class DesignationListTile extends StatelessWidget {
                                   );
                                 },
                               ); */
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              child: Image.asset(
-                                AppIcons.icEdit,
-                                color: AppColors.greenColor,
-                                height: 40,
-                                width: 40,
-                              ),
-                            ),
-                          ),
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Image.asset(
+                                      AppIcons.icEdit,
+                                      color: AppColors.greenColor,
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
+                                ),
 
-                          //Delete Button
-                          InkWell(
-                            onTap: () {
-                              AppHelper.showAlertDialog(
-                                  AppMessage.strDlt,
-                                  AppMessage.strDltItemMsg,
-                                  context,
-                                  () {}, () {
-                                Navigator.of(context).pop();
-                              });
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              child: Image.asset(
-                                AppIcons.icDelete,
-                                color: AppColors.redColor,
-                                height: 40,
-                                width: 40,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
+                                //Delete Button
+                                InkWell(
+                                  onTap: () {
+                                    AppHelper.showAlertDialog(AppMessage.strDlt,
+                                        AppMessage.strDltItemMsg, context, () {
+                                      Navigator.of(context).pop();
+                                      deleteDesignation(context);
+                                    }, () {
+                                      Navigator.of(context).pop();
+                                    });
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Image.asset(
+                                      AppIcons.icDelete,
+                                      color: AppColors.redColor,
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
                     ],
                   ),
                 ),

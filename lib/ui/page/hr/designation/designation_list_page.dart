@@ -122,20 +122,23 @@ class _DesignationListPageState extends State<DesignationListPage> {
                   height: 10,
                 ),
                 Expanded(
-                  child: MediaQuery.removePadding(
-                    context: context,
-                    removeTop: true,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: 10,
-                          itemBuilder: (ctx, index) {
-                            return const DesignationListTile();
-                          }),
-                    ),
-                  ),
+                  child: _isLoading
+                      ? const Center(
+                          child: CircularProgressIndicator.adaptive())
+                      : MediaQuery.removePadding(
+                          context: context,
+                          removeTop: true,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 50),
+                            child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: data.length,
+                                itemBuilder: (ctx, index) {
+                                  return const DesignationListTile();
+                                }),
+                          ),
+                        ),
                 )
               ],
             ),
