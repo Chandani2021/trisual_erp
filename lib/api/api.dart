@@ -36,6 +36,7 @@ class API {
     print('header token-->' + token);
     return {
       'Accept': 'application/json',
+      'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + await getToken(),
     };
   }
@@ -94,27 +95,18 @@ class API {
     var body = {};
     showLog('${TAG}_body: ' + body.toString());
 
-    try {
-      final response = await http.get(
-        url,
-        headers: await getHeader(),
-      );
-      showLog('$TAG token: ' + getToken().toString());
-      var decodedResult = jsonDecode(response.body);
-      showLog('${TAG}_response: ' + decodedResult.toString());
+    final response = await http.get(url, headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + getToken().toString(),
+    });
+    showLog('$TAG token: ' + getToken().toString());
+    showLog('${TAG}_response: ' + response.body);
+    var decodedResult = jsonDecode(response.body);
+    //showLog('${TAG}_response: ' + decodedResult.toString());
 
-      data = GradeListModel.fromJson(decodedResult);
-      return data;
-    } on SocketException {
-      showLog('${TAG}_error: $strNoInternet');
-      if (showNoInternet) {
-        showSnackBar(context, strNoInternet);
-      }
-      return null;
-    } catch (error) {
-      showLog('${TAG}_error: $error');
-      return null;
-    }
+    data = GradeListModel.fromJson(decodedResult);
+    return data;
   }
 
   //Delete Grade
@@ -366,8 +358,9 @@ class API {
     }
   }
 
-   //Delete Designation
-  static Future<CommonModel?> deleteDesignation(BuildContext context, String? id,
+  //Delete Designation
+  static Future<CommonModel?> deleteDesignation(
+      BuildContext context, String? id,
       {bool showNoInternet = false}) async {
     const String TAG = 'delete_designation';
     CommonModel data;

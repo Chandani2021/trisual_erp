@@ -1,9 +1,7 @@
 class Endpoints {
-  Endpoints._();
-
   // base url
-  static const String baseUrl = "http://trishul.latestdevelopers.com/api";
-  static const String baseImgUrl = "https://comdigs.com/public/uploads/";
+  // static const String baseUrl = "http://trishul.latestdevelopers.com/api";
+  static const String baseUrl = "http://trishuldata.latestdevelopers.com/api";
 
   // receiveTimeout
   static const int receiveTimeout = 15000;
@@ -34,7 +32,6 @@ class Endpoints {
 
   //Report Master
   static const String getReportMaster = baseUrl + "/Parameters";
-
 
   //Designation
   static const String getDesignation = baseUrl + "/designations";
