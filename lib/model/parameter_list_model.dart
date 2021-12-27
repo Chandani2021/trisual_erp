@@ -7,8 +7,8 @@ class ParameterListModel {
 
   ParameterListModel.fromJson(Map<String, dynamic> json) {
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    code = json['code'];
-    message = json['message'];
+    code = json['code'].toString();
+    message = json['message'].toString();
   }
 
   Map<String, dynamic> toJson() {
@@ -16,8 +16,8 @@ class ParameterListModel {
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['code'] = this.code;
-    data['message'] = this.message;
+    data['code'] = code;
+    data['message'] = message;
     return data;
   }
 }
@@ -40,7 +40,7 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['parameter'] = this.parameter;
+    data['parameter'] = parameter;
     if (allParameters != null) {
       data['allParameters'] = allParameters!.map((v) => v.toJson()).toList();
     }
@@ -99,7 +99,7 @@ class AllParameters {
     if (parameterType != null) {
       data['parameterType'] = parameterType!.toJson();
     }
-    if (this.specs != null) {
+    if (specs != null) {
       data['specs'] = specs!.toJson();
     }
     data['id'] = id;

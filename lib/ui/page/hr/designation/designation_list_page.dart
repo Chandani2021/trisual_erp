@@ -2,18 +2,69 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/hr/dialog_add_designation.dart';
+import 'package:trishul_erp/model/designation_list_model.dart';
 import 'package:trishul_erp/ui/page/hr/designation/designation_list_tile.dart';
+import 'package:trishul_erp/view/toast.dart';
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
-class DesignationListPage extends StatelessWidget {
+class DesignationListPage extends StatefulWidget {
   static const String routeName = '/designation_list';
 
   const DesignationListPage({Key? key}) : super(key: key);
+
+  @override
+  State<DesignationListPage> createState() => _DesignationListPageState();
+}
+
+class _DesignationListPageState extends State<DesignationListPage> {
+  List<AllDesignation> data = [];
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    if (mounted) {
+      designationList(context);
+    }
+    super.initState();
+  }
+
+  void _deleteBrand(int index) async {
+    if (mounted) {
+      setState(() {
+        data.removeAt(index);
+      });
+    }
+  }
+
+  Future designationList(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+    return await API.designationList(context).then((response) {
+      setState(() {
+        _isLoading = false;
+      });
+      if (response!.code == '200') {
+        setState(() {
+          data = response.data!.allDesignation!;
+          print('dataaa' + data.length.toString());
+        });
+      } else if (response.code == '401') {
+        Toast.show(context, response.message!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var appbarTitle = Get.arguments;

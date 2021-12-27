@@ -11,7 +11,6 @@ import 'package:trishul_erp/view/toast.dart';
 
 import 'package:trishul_erp/widgets/widget_appbar_with_back_button.dart';
 
-import '../master_general_list_tile.dart';
 import 'brand_list_tile.dart';
 
 class BrandListPage extends StatefulWidget {
