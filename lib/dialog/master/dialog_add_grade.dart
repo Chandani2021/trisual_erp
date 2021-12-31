@@ -9,8 +9,9 @@ import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/utils/device_utils.dart';
 
 class DialogAddGrade extends StatefulWidget {
-  final String? title;
-  const DialogAddGrade({Key? key, @required this.title}) : super(key: key);
+  const DialogAddGrade({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _DialogAddGradeState createState() => _DialogAddGradeState();
@@ -25,12 +26,13 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
   String errorMessage = "";
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool isResendButtonActive = false;
+  var gradeController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
-    title = widget.title!;
+    // title = widget.title!;
   }
 
   @override
@@ -72,24 +74,25 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      // Country Code , Mobile Number Text Input Layout
                       TextFormField(
-                        initialValue: '',
+                        controller: gradeController,
                         style: AppStyles.textInputTextStyle,
                         decoration: AppStyles.textFieldInputDecoration.copyWith(
                             hintText: AppStrings.strHintEnterGradeTitle),
                         onSaved: (String? value) {
-                          // This optional block of code can be used to run
-                          // code when the user saves the form.
-                          // map['Mobile'] = value!.trim();
+                          gradeController.text = value!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return AppStrings.strHintEnterGradeTitle;
+                          } else {
+                            return null;
+                          }
                         },
                       ),
-
                       const SizedBox(height: 24),
-
                       Row(
                         children: [
-                          // -----***** Continue Button *****-----
                           (_isLoading == true)
                               ? const CircularProgressIndicator.adaptive()
                               : Expanded(
@@ -101,11 +104,6 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
                                         errorMessage = "";
                                         return;
                                       } else {}
-
-                                      setState(() {
-                                        errorMessage = "";
-                                        _isLoading = true;
-                                      });
                                     },
                                     child: Container(
                                       decoration:
@@ -151,7 +149,6 @@ class _DialogAddGradeState extends State<DialogAddGrade> {
                           ),
                         ],
                       ),
-
                       const SizedBox(height: 29.0),
                     ],
                   ),

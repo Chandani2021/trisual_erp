@@ -5,7 +5,6 @@ import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
-import 'package:trishul_erp/dialog/master/dialog_edit_grade.dart';
 
 class ElectricityListTile extends StatelessWidget {
   final VoidCallback? callback;
@@ -178,14 +177,14 @@ class ElectricityListTile extends StatelessWidget {
                           //Edit Button
                           InkWell(
                             onTap: () {
-                              showDialog(
+                              /* showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return const DialogEditGrade(
                                     title: '+91',
                                   );
                                 },
-                              );
+                              ); */
                             },
                             child: Container(
                               padding: const EdgeInsets.all(10),

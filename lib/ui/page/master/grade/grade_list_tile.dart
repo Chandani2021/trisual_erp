@@ -73,10 +73,10 @@ class _GradeListTileState extends State<GradeListTile> {
             child: _isDeleting
                 ? Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
+                    child: const Text(
                       'We are processing your request to delete this item...',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: appFontFamily,
                         fontSize: 15,
                         color: AppColors.blackColor,
@@ -89,7 +89,7 @@ class _GradeListTileState extends State<GradeListTile> {
                     children: [
                       Expanded(
                         child: Text(widget.gradeItem!.name ?? '',
-                            style: AppStyles.txtListLblTextStyle),
+                            style: AppStyles.lableTextStyle),
                       ),
                       //Edit Button
                       InkWell(
@@ -97,8 +97,8 @@ class _GradeListTileState extends State<GradeListTile> {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return const DialogEditGrade(
-                                title: '+91',
+                              return DialogEditGrade(
+                                gradeItem: widget.gradeItem,
                               );
                             },
                           );

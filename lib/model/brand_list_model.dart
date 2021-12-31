@@ -55,8 +55,8 @@ class AllBrands {
   AllBrands({this.name, this.id});
 
   AllBrands.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    id = json['id'];
+    name = json['name'].toString();
+    id = json['id'].toString();
   }
 
   Map<String, dynamic> toJson() {

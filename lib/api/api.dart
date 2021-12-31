@@ -14,6 +14,7 @@ import 'package:trishul_erp/model/designation_list_model.dart';
 import 'package:trishul_erp/model/grade_list_model.dart';
 import 'package:trishul_erp/model/login_model.dart';
 import 'package:trishul_erp/model/parameter_list_model.dart';
+import 'package:trishul_erp/model/report_master_list_model.dart';
 
 class API {
   static void showLog(String message) {
@@ -31,13 +32,23 @@ class API {
     );
   }
 
+  //  String? rawCookie = response.headers['set-cookie'];
+  //     if (rawCookie != null) {
+  //       int index = rawCookie.indexOf(';');
+  //       String c = (index == -1) ? rawCookie : rawCookie.substring(0, index);
+  //       await SharedPref.saveData("cookieee", c);
+  //     }
+
   static Future<Map<String, String>> getHeader() async {
     String token = 'Bearer ' + await getToken();
+    String cookie = await getCookie();
     print('header token-->' + token);
     return {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + await getToken(),
+      // 'Accept': 'application/json',
+      // 'Content-Type': 'application/json',
+      'Content-type': 'application/x-www-form-urlencoded',
+      'Authorization': token,
+      'cookie': cookie,
     };
   }
 
@@ -50,6 +61,17 @@ class API {
       print('token-->' + token.toString());
     }
     return token!;
+  }
+
+  static Future<String> getCookie() async {
+    String? cookie = '';
+    final preference = await SharedPreferences.getInstance();
+    bool isExists = preference.containsKey('cookieee');
+    if (isExists) {
+      cookie = preference.getString('cookieee');
+      print('cookieee-->' + cookie.toString());
+    }
+    return cookie!;
   }
 
   static Future<LoginModel?> login(
@@ -67,6 +89,15 @@ class API {
     showLog('${TAG}_body: ' + body.toString());
     try {
       final response = await http.post(url, body: body);
+
+      String? rawCookie = response.headers['set-cookie'];
+      if (rawCookie != null) {
+        int index = rawCookie.indexOf(';');
+        String c = (index == -1) ? rawCookie : rawCookie.substring(0, index);
+        final preference = await SharedPreferences.getInstance();
+        preference.setString('cookieee', c);
+      }
+
       var decodedResult = jsonDecode(response.body);
       showLog('${TAG}_response: ' + decodedResult.toString());
 
@@ -95,18 +126,28 @@ class API {
     var body = {};
     showLog('${TAG}_body: ' + body.toString());
 
-    final response = await http.get(url, headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'Bearer ' + getToken().toString(),
-    });
-    showLog('$TAG token: ' + getToken().toString());
-    showLog('${TAG}_response: ' + response.body);
-    var decodedResult = jsonDecode(response.body);
-    //showLog('${TAG}_response: ' + decodedResult.toString());
+    try {
+      final response = await http.get(
+        url,
+        headers: await getHeader(),
+      );
+      showLog('$TAG token: ' + getToken().toString());
+      showLog('${TAG}_response1: ' + response.body.toString());
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
 
-    data = GradeListModel.fromJson(decodedResult);
-    return data;
+      data = GradeListModel.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: ' + error.toString());
+      return null;
+    }
   }
 
   //Delete Grade
@@ -115,7 +156,7 @@ class API {
     const String TAG = 'delete_grade';
     CommonModel data;
 
-    String apiUrl = Endpoints.deleteGrade;
+    String apiUrl = Endpoints.updateGrade;
     var url = Uri.parse(apiUrl);
     showLog('${TAG}_URL: ' + url.toString());
     var body = {
@@ -288,7 +329,7 @@ class API {
     }
   }
 
-  //Brand List
+  //Designation List
   static Future<DesignationListModel?> designationList(BuildContext context,
       {bool showNoInternet = false}) async {
     const String TAG = 'designationList';
@@ -358,6 +399,79 @@ class API {
     }
   }
 
+  //Add Grade
+  static Future<CommonModel?> addGrade(BuildContext context, String? name,
+      {bool showNoInternet = false}) async {
+    const String TAG = 'add_brand';
+    CommonModel data;
+
+    String apiUrl = Endpoints.addBrand;
+    var url = Uri.parse(apiUrl);
+    showLog('${TAG}_URL: ' + url.toString());
+    var body = {
+      'id': name,
+    };
+    showLog('${TAG}_body: ' + body.toString());
+    try {
+      final response = await http.post(
+        url,
+        headers: await getHeader(),
+        body: body,
+      );
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
+
+      data = CommonModel.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: $error');
+      return null;
+    }
+  }
+
+  //Update Grade
+  static Future<CommonModel?> updateGrade(
+      {BuildContext? context,
+      String? id,
+      String? name,
+      bool showNoInternet = false}) async {
+    const String TAG = 'update_grade';
+    CommonModel data;
+
+    String apiUrl = Endpoints.updateGrade;
+    var url = Uri.parse(apiUrl);
+    showLog('${TAG}_URL: ' + url.toString());
+    var body = {'id': id, 'name': name};
+    showLog('${TAG}_body: ' + body.toString());
+    try {
+      final response = await http.post(
+        url,
+        headers: await getHeader(),
+        body: body,
+      );
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
+
+      data = CommonModel.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context!, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: $error');
+      return null;
+    }
+  }
+
   //Delete Designation
   static Future<CommonModel?> deleteDesignation(
       BuildContext context, String? id,
@@ -383,6 +497,40 @@ class API {
       showLog('${TAG}_response: ' + decodedResult.toString());
 
       data = CommonModel.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: $error');
+      return null;
+    }
+  }
+
+  //Report Master
+  static Future<ReportMasterListData?> reportMasterList(BuildContext context,
+      {bool showNoInternet = false}) async {
+    const String TAG = 'parameterList';
+    ReportMasterListData data;
+    String apiUrl = Endpoints.getParameter;
+    var url = Uri.parse(apiUrl);
+    showLog('${TAG}_URL: ' + url.toString());
+    var body = {};
+    showLog('${TAG}_body: ' + body.toString());
+
+    try {
+      final response = await http.get(
+        url,
+        headers: await getHeader(),
+      );
+      showLog('$TAG token: ' + getToken().toString());
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
+
+      data = ReportMasterListData.fromJson(decodedResult);
       return data;
     } on SocketException {
       showLog('${TAG}_error: $strNoInternet');

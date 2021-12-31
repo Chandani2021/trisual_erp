@@ -5,7 +5,7 @@ import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
-import 'package:trishul_erp/dialog/master/dialog_add_grade.dart';
+import 'package:trishul_erp/dialog/master/dialog_add_furnace.dart';
 import 'package:trishul_erp/model/brand_list_model.dart';
 import 'package:trishul_erp/view/toast.dart';
 
@@ -132,7 +132,7 @@ class _BrandListPageState extends State<BrandListPage> {
                             child: ListView.builder(
                                 shrinkWrap: true,
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: 10,
+                                itemCount: data.length,
                                 itemBuilder: (ctx, index) {
                                   return BrandListTile(
                                     deleteCallback: () {},
@@ -154,9 +154,7 @@ class _BrandListPageState extends State<BrandListPage> {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return const DialogAddGrade(
-                        title: '+91',
-                      );
+                      return DialogAddFurnace(title: '6');
                     },
                   );
                 },

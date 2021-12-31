@@ -15,6 +15,7 @@ class Endpoints {
   //Grade
   static const String getGrade = baseUrl + "/Grades";
   static const String deleteGrade = baseUrl + "/Grades";
+  static const String updateGrade = baseUrl + "/Grades";
 
   //Brand
   static const String getBrand = baseUrl + "/brands";

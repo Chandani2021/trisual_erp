@@ -3,14 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:trishul_erp/api/api.dart';
 import 'package:trishul_erp/constants/app_colors.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/model/common_model.dart';
+import 'package:trishul_erp/model/grade_list_model.dart';
 import 'package:trishul_erp/utils/device_utils.dart';
+import 'package:trishul_erp/view/toast.dart';
 
 class DialogEditGrade extends StatefulWidget {
-  final String? title;
-  const DialogEditGrade({Key? key, @required this.title}) : super(key: key);
+  final AllGrade? gradeItem;
+  const DialogEditGrade({Key? key, @required this.gradeItem}) : super(key: key);
 
   @override
   _DialogEditGradeState createState() => _DialogEditGradeState();
@@ -25,12 +29,46 @@ class _DialogEditGradeState extends State<DialogEditGrade> {
   String errorMessage = "";
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool isResendButtonActive = false;
+  var gradeController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+    setState(() {
+      gradeController.text = widget.gradeItem!.name.toString();
+    });
+  }
 
-    title = widget.title!;
+  Future updateGrade(BuildContext context) async {
+    setState(() {
+      _isLoading = true;
+    });
+    return await API
+        .updateGrade(
+      context: context,
+      id: widget.gradeItem!.id,
+      name: gradeController.text,
+    )
+        .then((CommonModel? response) async {
+      setState(() {
+        _isLoading = false;
+      });
+      if (response!.code == '200') {
+        Toast.show(context, response.msg!);
+        // if (isProfileChanged) {
+
+        //   // preference.setString('profile_pic', )
+        // }
+        Get.back();
+      } else if (response.code == '401') {
+        print('response code-->201');
+        Toast.show(context, response.msg!);
+      }
+    }).onError((error, stackTrace) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 
   @override
@@ -73,7 +111,7 @@ class _DialogEditGradeState extends State<DialogEditGrade> {
                   child: Column(
                     children: [
                       TextFormField(
-                        initialValue: '',
+                        controller: gradeController,
                         style: AppStyles.textInputTextStyle,
                         decoration: AppStyles.textFieldInputDecoration.copyWith(
                             hintText: AppStrings.strHintEnterGradeTitle),
@@ -97,7 +135,9 @@ class _DialogEditGradeState extends State<DialogEditGrade> {
                                       if (!_formKey.currentState!.validate()) {
                                         errorMessage = "";
                                         return;
-                                      } else {}
+                                      } else {
+                                        updateGrade(context);
+                                      }
 
                                       setState(() {
                                         errorMessage = "";

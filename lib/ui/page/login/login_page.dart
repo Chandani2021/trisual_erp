@@ -53,6 +53,9 @@ class _LoginPageState extends State<LoginPage> {
           preference.setString('email', response.data!.user!.email!);
           preference.setString('token', response.data!.token!);
 
+          
+
+
           Get.offAndToNamed(MainPage.routeName, arguments: response.data!.menu);
         } else if (response.code == '401') {
           Toast.show(context, response.message!);

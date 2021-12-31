@@ -5,15 +5,25 @@ import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
+import 'package:trishul_erp/model/report_master_list_model.dart';
 
-class ReportMasterListTile extends StatelessWidget {
-  final VoidCallback? callback;
+class ReportMasterListTile extends StatefulWidget {
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
+  final AllReportMasterItem? reportMasterItem;
 
   const ReportMasterListTile({
     Key? key,
-    this.callback,
+    this.reportMasterItem,
+    this.deleteCallback,
+    this.editCallback,
   }) : super(key: key);
 
+  @override
+  State<ReportMasterListTile> createState() => _ReportMasterListTileState();
+}
+
+class _ReportMasterListTileState extends State<ReportMasterListTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +55,8 @@ class ReportMasterListTile extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: Text('Name',
+                            child: Text(
+                                widget.reportMasterItem!.name.toString(),
                                 style: AppStyles.txtListLblTextStyle),
                           ),
                         ],
@@ -63,7 +74,8 @@ class ReportMasterListTile extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text('Melting', style: AppStyles.txtListLblTextStyle),
+                          Text(widget.reportMasterItem!.process.toString(),
+                              style: AppStyles.txtListLblTextStyle),
                           const SizedBox(
                             width: 15,
                           ),
@@ -182,16 +194,13 @@ class ReportMasterListTile extends StatelessWidget {
                           //Delete Button
                           InkWell(
                             onTap: () {
-                              AppHelper.showAlertDialog(
-                                  AppMessage.strDlt,
-                                  AppMessage.strDltItemMsg,
-                                  context,
-                                  () {}, () {
+                              AppHelper.showAlertDialog(AppMessage.strDlt,
+                                  AppMessage.strDltItemMsg, context, () {}, () {
                                 Navigator.of(context).pop();
                               });
                             },
                             child: Container(
-                            padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: Image.asset(
                                 AppIcons.icDelete,
                                 color: AppColors.redColor,

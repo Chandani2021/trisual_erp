@@ -34,7 +34,7 @@ class _DesignationListPageState extends State<DesignationListPage> {
     super.initState();
   }
 
-  void _deleteBrand(int index) async {
+  void _deleteDesignation(int index) async {
     if (mounted) {
       setState(() {
         data.removeAt(index);
@@ -135,7 +135,13 @@ class _DesignationListPageState extends State<DesignationListPage> {
                                 physics: const BouncingScrollPhysics(),
                                 itemCount: data.length,
                                 itemBuilder: (ctx, index) {
-                                  return const DesignationListTile();
+                                  return DesignationListTile(
+                                    designationItem: data[index],
+                                    editCallback: () {},
+                                    deleteCallback: () {
+                                      _deleteDesignation(index);
+                                    },
+                                  );
                                 }),
                           ),
                         ),

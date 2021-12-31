@@ -7,7 +7,7 @@ class GradeListModel {
 
   GradeListModel.fromJson(Map<String, dynamic> json) {
     data = json['data'] != null ? GradeListItem.fromJson(json['data']) : null;
-    code = json['code'.toString()];
+    code = json['code'].toString();
     message = json['message'].toString();
   }
 
@@ -24,9 +24,8 @@ class GradeListModel {
 
 class GradeListItem {
   List<AllGrade>? allGrade;
-  String? grade;
 
-  GradeListItem({this.allGrade, this.grade});
+  GradeListItem({this.allGrade});
 
   GradeListItem.fromJson(Map<String, dynamic> json) {
     if (json['allGrade'] != null) {
@@ -35,7 +34,6 @@ class GradeListItem {
         allGrade!.add(AllGrade.fromJson(v));
       });
     }
-    grade = json['grade'].toString();
   }
 
   Map<String, dynamic> toJson() {
@@ -43,7 +41,6 @@ class GradeListItem {
     if (allGrade != null) {
       data['allGrade'] = allGrade!.map((v) => v.toJson()).toList();
     }
-    data['grade'] = grade;
     return data;
   }
 }
