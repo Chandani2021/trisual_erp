@@ -14,6 +14,7 @@ import 'package:trishul_erp/model/designation_list_model.dart';
 import 'package:trishul_erp/model/grade_list_model.dart';
 import 'package:trishul_erp/model/login_model.dart';
 import 'package:trishul_erp/model/parameter_list_model.dart';
+import 'package:trishul_erp/model/rejection_type_list_model.dart';
 import 'package:trishul_erp/model/report_master_list_model.dart';
 
 class API {
@@ -531,6 +532,40 @@ class API {
       showLog('${TAG}_response: ' + decodedResult.toString());
 
       data = ReportMasterListData.fromJson(decodedResult);
+      return data;
+    } on SocketException {
+      showLog('${TAG}_error: $strNoInternet');
+      if (showNoInternet) {
+        showSnackBar(context, strNoInternet);
+      }
+      return null;
+    } catch (error) {
+      showLog('${TAG}_error: $error');
+      return null;
+    }
+  }
+
+  //Rejection Type
+  static Future<RejectionTypeListModel?> rejectionTypeList(BuildContext context,
+      {bool showNoInternet = false}) async {
+    const String TAG = 'Rejections';
+    RejectionTypeListModel data;
+    String apiUrl = Endpoints.getRejectionType;
+    var url = Uri.parse(apiUrl);
+    showLog('${TAG}_URL: ' + url.toString());
+    var body = {};
+    showLog('${TAG}_body: ' + body.toString());
+
+    try {
+      final response = await http.get(
+        url,
+        headers: await getHeader(),
+      );
+      showLog('$TAG token: ' + getToken().toString());
+      var decodedResult = jsonDecode(response.body);
+      showLog('${TAG}_response: ' + decodedResult.toString());
+
+      data = RejectionTypeListModel.fromJson(decodedResult);
       return data;
     } on SocketException {
       showLog('${TAG}_error: $strNoInternet');

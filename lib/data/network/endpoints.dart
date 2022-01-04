@@ -34,6 +34,9 @@ class Endpoints {
   //Report Master
   static const String getReportMaster = baseUrl + "/Parameters";
 
+  //Rejection Type
+  static const String getRejectionType = baseUrl + "/Rejections";
+
   //Designation
   static const String getDesignation = baseUrl + "/designations";
   static const String deleteDesignation = baseUrl + "/designations";

@@ -5,13 +5,18 @@ import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_styles.dart';
 import 'package:trishul_erp/dialog/master/dialog_edit_machine.dart';
+import 'package:trishul_erp/model/rejection_type_list_model.dart';
 
 class RejectionTypeListTile extends StatelessWidget {
-  final VoidCallback? callback;
+  final AllRejection? rejctionTypeItem;
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
 
   const RejectionTypeListTile({
     Key? key,
-    this.callback,
+    this.rejctionTypeItem,
+    this.deleteCallback,
+    this.editCallback,
   }) : super(key: key);
 
   @override
@@ -21,8 +26,6 @@ class RejectionTypeListTile extends StatelessWidget {
         top: 5,
         bottom: 5,
       ),
-      // decoration: BoxDecoration(
-      //     color: AppColors.chipColor, borderRadius: BorderRadius.circular(25)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,11 +45,13 @@ class RejectionTypeListTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Name', style: AppStyles.txtListLblTextStyle),
+                      Text(rejctionTypeItem!.name.toString(),
+                          style: AppStyles.txtListLblTextStyle),
                       const SizedBox(
                         height: 10,
                       ),
-                      Text('Short Name', style: AppStyles.txtListLblTextStyle),
+                      Text(rejctionTypeItem!.shortCode.toString(),
+                          style: AppStyles.txtListLblTextStyle),
                     ],
                   ),
                 ),
