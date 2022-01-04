@@ -55,7 +55,7 @@ class RejectionTypeListTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                //Edit Button
+                //Edit
                 InkWell(
                   onTap: () {
                     showDialog(
