@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/trishul_erp/BuildConfig.java
- com.example.trishul_erp.BuildConfig

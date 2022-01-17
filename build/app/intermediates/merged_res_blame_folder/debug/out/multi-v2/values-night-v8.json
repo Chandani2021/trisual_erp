@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Raiyani Work\\Trishul Erp\\Code\\trishul_erp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "/Users/lycrosys/Desktop/Work/Projects/EnCoders/Trishul Erp/Code/trisual_erp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "E:\\Raiyani Work\\Trishul Erp\\Code\\trishul_erp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "/Users/lycrosys/Desktop/Work/Projects/EnCoders/Trishul Erp/Code/trisual_erp/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
-                        "startOffsets": "175,829",
+                        "startOffsets": "172,815",
                         "endLines": "7,16",
                         "endColumns": "12,12",
-                        "endOffsets": "471,995"
+                        "endOffsets": "464,979"
                     },
                     "to": {
                         "startLines": "2,7",

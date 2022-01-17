@@ -1,4 +1,4 @@
-#Tue Jan 04 10:51:11 IST 2022
-base.0=E\:\\Raiyani Work\\Trishul Erp\\Code\\trishul_erp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-path.0=classes.dex
+#Mon Jan 17 17:52:27 IST 2022
+base.0=/Users/lycrosys/Desktop/Work/Projects/EnCoders/Trishul Erp/Code/trisual_erp/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
+path.0=classes.dex

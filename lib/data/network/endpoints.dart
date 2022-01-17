@@ -1,7 +1,7 @@
 class Endpoints {
   // base url
-  // static const String baseUrl = "http://trishul.latestdevelopers.com/api";
-  static const String baseUrl = "http://trishuldata.latestdevelopers.com/api";
+  static const String baseUrl = "http://trishul.latestdevelopers.com/api";
+  // static const String baseUrl = "http://trishuldata.latestdevelopers.com/api";
 
   // receiveTimeout
   static const int receiveTimeout = 15000;
@@ -23,7 +23,7 @@ class Endpoints {
   static const String addBrand = baseUrl + "/brands";
   static const String updateBrand = baseUrl + "/brands";
 
-  //Parameter
+  //Parameter 
   static const String getParameter = baseUrl + "/Parameters";
   static const String deleteParameter = baseUrl + "/Parameters";
 

@@ -23,7 +23,11 @@ class ListTileItem extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Text(valueText ?? '', style: AppStyles.txtListValueTextStyle),
+        Wrap(
+          children: [
+            Text(valueText ?? '', style: AppStyles.txtListValueTextStyle)
+          ],
+        )
       ],
     );
   }
