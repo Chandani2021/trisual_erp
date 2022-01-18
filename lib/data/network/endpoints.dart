@@ -23,7 +23,7 @@ class Endpoints {
   static const String addBrand = baseUrl + "/brands";
   static const String updateBrand = baseUrl + "/brands";
 
-  //Parameter 
+  //Parameter
   static const String getParameter = baseUrl + "/Parameters";
   static const String deleteParameter = baseUrl + "/Parameters";
 
@@ -41,4 +41,9 @@ class Endpoints {
   static const String getDesignation = baseUrl + "/designations";
   static const String deleteDesignation = baseUrl + "/designations";
   static const String updateDesignation = baseUrl + "/designations";
+
+  //Department
+  static const String getDepartment = baseUrl + "/departments";
+  static const String deleteDepartment = baseUrl + "/departments";
+  static const String updateDepartment = baseUrl + "/departments";
 }

@@ -1,0 +1,4 @@
+#Mon Jan 17 18:54:11 IST 2022
+base.0=/Users/lycrosys/Desktop/Work/Projects/EnCoders/Trishul Erp/Code/trisual_erp/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

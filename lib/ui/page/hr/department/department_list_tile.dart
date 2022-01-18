@@ -4,14 +4,19 @@ import 'package:trishul_erp/constants/app_helper.dart';
 import 'package:trishul_erp/constants/app_icons.dart';
 import 'package:trishul_erp/constants/app_messages.dart';
 import 'package:trishul_erp/constants/app_strings.dart';
+import 'package:trishul_erp/model/department_list_model.dart';
 import 'package:trishul_erp/widgets/widget_list_tile_item.dart';
 
 class DepartmentListTile extends StatelessWidget {
-  final VoidCallback? callback;
+  final VoidCallback? deleteCallback;
+  final VoidCallback? editCallback;
+  final AllDepartment? departmentItem;
 
   const DepartmentListTile({
     Key? key,
-    this.callback,
+    this.deleteCallback,
+    this.editCallback,
+    this.departmentItem,
   }) : super(key: key);
 
   @override
@@ -46,7 +51,7 @@ class DepartmentListTile extends StatelessWidget {
                       ),
                       ListTileItem(
                         lblText: AppStrings.strName,
-                        valueText: 'ADMIN',
+                        valueText: departmentItem!.name.toString(),
                       ),
                       const SizedBox(
                         height: 5,
@@ -55,7 +60,7 @@ class DepartmentListTile extends StatelessWidget {
                       //Created At
                       ListTileItem(
                         lblText: AppStrings.strCreatedAt,
-                        valueText: '25-12-2021',
+                        valueText: departmentItem!.createdDate,
                       ),
                       const SizedBox(
                         height: 5,
@@ -73,7 +78,7 @@ class DepartmentListTile extends StatelessWidget {
                       //Modified At
                       ListTileItem(
                         lblText: AppStrings.strModifiedAt,
-                        valueText: 'ABC XYZ',
+                        valueText: departmentItem!.modifiedDate,
                       ),
                       const SizedBox(
                         height: 5,
@@ -82,7 +87,7 @@ class DepartmentListTile extends StatelessWidget {
                       //Modified By
                       ListTileItem(
                         lblText: AppStrings.strModifiedBy,
-                        valueText: 'ABC',
+                        valueText: departmentItem!.modifiedBy,
                       ),
                       const SizedBox(
                         height: 5,
@@ -117,11 +122,8 @@ class DepartmentListTile extends StatelessWidget {
                           //Delete Button
                           InkWell(
                             onTap: () {
-                              AppHelper.showAlertDialog(
-                                  AppMessage.strDlt,
-                                  AppMessage.strDltItemMsg,
-                                  context,
-                                  () {}, () {
+                              AppHelper.showAlertDialog(AppMessage.strDlt,
+                                  AppMessage.strDltItemMsg, context, () {}, () {
                                 Navigator.of(context).pop();
                               });
                             },
@@ -130,7 +132,7 @@ class DepartmentListTile extends StatelessWidget {
                               child: Image.asset(
                                 AppIcons.icDelete,
                                 color: AppColors.redColor,
-                               height: 40,
+                                height: 40,
                                 width: 40,
                               ),
                             ),
