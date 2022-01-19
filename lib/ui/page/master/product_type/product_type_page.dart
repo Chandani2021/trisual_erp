@@ -101,7 +101,7 @@ class ProductTypePage extends StatelessWidget {
                   ); */
                 },
                 icon: const Icon(Icons.add),
-                label: Text(AppStrings.strAddSubType),
+                label: Text(AppStrings.strAddType),
               ),
             ),
           ],

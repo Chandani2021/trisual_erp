@@ -15,7 +15,7 @@ import 'package:trishul_erp/ui/page/master/laddle/laddle_page.dart';
 import 'package:trishul_erp/ui/page/master/machine/machine_page.dart';
 import 'package:trishul_erp/ui/page/master/parameter/parameter_page.dart';
 import 'package:trishul_erp/ui/page/master/product_type/product_type_page.dart';
-import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
+import 'package:trishul_erp/ui/page/master/product_subtype/product_subtype_page.dart';
 import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
 import 'package:trishul_erp/ui/page/master/reason_master/reason_master_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_master/rejection_master_page.dart';
@@ -83,15 +83,15 @@ class _MasterPageState extends State<MasterPage> {
                     Get.toNamed(BrandListPage.routeName,
                         arguments: masterList[index]);
                   }
-                   if (index == 2) {
-                    Get.toNamed(ProductTypePage.routeName,
+                  if (index == 2) {
+                    Get.toNamed(ProductionSubTypePage.routeName,
                         arguments: masterList[index]);
                   }
                   if (index == 3) {
-                    Get.toNamed(ProductionSubPageListPage.routeName,
+                    Get.toNamed(ProductTypePage.routeName,
                         arguments: masterList[index]);
                   }
-                 
+
                   if (index == 4) {
                     Get.toNamed(CoreTypePage.routeName,
                         arguments: masterList[index]);
@@ -104,7 +104,7 @@ class _MasterPageState extends State<MasterPage> {
                     Get.toNamed(ProductsListPage.routeName,
                         arguments: masterList[index]);
                   }
-                 
+
                   if (index == 7) {
                     Get.toNamed(ScrapePage.routeName,
                         arguments: masterList[index]);
@@ -121,7 +121,7 @@ class _MasterPageState extends State<MasterPage> {
                     Get.toNamed(RejectionTypePage.routeName,
                         arguments: masterList[index]);
                   }
-                   if (index == 11) {
+                  if (index == 11) {
                     Get.toNamed(ReasonMasterPage.routeName,
                         arguments: masterList[index]);
                   }

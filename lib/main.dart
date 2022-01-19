@@ -19,7 +19,7 @@ import 'package:trishul_erp/ui/page/master/laddle/laddle_page.dart';
 import 'package:trishul_erp/ui/page/master/machine/machine_page.dart';
 import 'package:trishul_erp/ui/page/master/parameter/parameter_page.dart';
 import 'package:trishul_erp/ui/page/master/product_type/product_type_page.dart';
-import 'package:trishul_erp/ui/page/master/production_sub_page_list.dart';
+import 'package:trishul_erp/ui/page/master/product_subtype/product_subtype_page.dart';
 import 'package:trishul_erp/ui/page/master/products/product_list_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_master/rejection_master_page.dart';
 import 'package:trishul_erp/ui/page/master/rejection_specified/rejection_specified_page.dart';
@@ -74,8 +74,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: BrandListPage.routeName, page: () => BrandListPage()),
         GetPage(name: ProductTypePage.routeName, page: () => ProductTypePage()),
         GetPage(
-            name: ProductionSubPageListPage.routeName,
-            page: () => ProductionSubPageListPage()),
+            name: ProductionSubTypePage.routeName,
+            page: () => ProductionSubTypePage()),
         GetPage(name: ProductTypePage.routeName, page: () => ProductTypePage()),
         GetPage(name: CoreTypePage.routeName, page: () => CoreTypePage()),
         GetPage(name: MachinePage.routeName, page: () => MachinePage()),

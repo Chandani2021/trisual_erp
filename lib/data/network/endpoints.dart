@@ -46,4 +46,8 @@ class Endpoints {
   static const String getDepartment = baseUrl + "/departments";
   static const String deleteDepartment = baseUrl + "/departments";
   static const String updateDepartment = baseUrl + "/departments";
+
+//Product SubType
+  static const String getProductSubType = baseUrl + "/productSubTypes";
+  
 }
