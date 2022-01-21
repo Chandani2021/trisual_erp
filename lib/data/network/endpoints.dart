@@ -49,5 +49,9 @@ class Endpoints {
 
 //Product SubType
   static const String getProductSubType = baseUrl + "/productSubTypes";
+
+  //Product Typs
+  static const String getProductTypes = baseUrl + "/productTypes";
+
   
 }
